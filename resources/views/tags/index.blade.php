@@ -9,14 +9,8 @@
 
 
 <div class="container">
-<table class="table table-bordered">
-		
-		<a href="{{url('/tags/create')}}" class="btn btn-primary btn-fab">
-			<i class="material-icons">Agregar</i>
-		</a>
-  			<!-- Buscador de Tags-->
-				
-				<form action="{{ url('search') }}" method="GET">
+	<!-- Buscador de Tags-->
+		<form action="{{ url('/search') }}" method="GET">
 						<div class="input-group" >
 							<input type="search" name="search" class="form-control">
 							<span class="input-group-prepend">
@@ -28,9 +22,13 @@
 						</div>
 					
 				</form>
-
-
-			<!--  Fin del Buscador de Tags-->
+				<!--  Fin del Buscador de Tags-->
+<table class="table table-bordered">
+		
+		<a href="{{url('/tags/create')}}" class="btn btn-primary btn-fab">
+			<i class="material-icons">Agregar</i>
+		</a>
+			
 	<thead>
 		<tr>
 			<td>ID</td>

@@ -41,7 +41,9 @@ Route::get('/', function () {
 
 		Route::get('/search','TagsController@search');	
 
-
+		Route::resource('articles','ArticlesController');
+		
+		Route::get('/searchArticles','ArticlesController@search');			
 //});
 
 

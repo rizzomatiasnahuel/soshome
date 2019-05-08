@@ -13,7 +13,7 @@ class Tag extends Model
 
 	Public function articles(){
 
-		return $this->belongsToMany('App\article');
+		return $this->belongsToMany('App\Article')->witTimestamps();
 
 
 	}

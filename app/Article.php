@@ -9,7 +9,7 @@ class Article extends Model
     //
     Protected $table="articles";
 
-    Protected $fillable =['name','content','category_id','user_id'];
+    Protected $fillable =['title','content','category_id','user_id'];
 
     Public function category(){
 
@@ -26,14 +26,14 @@ class Article extends Model
 
    	Public function images(){
 
-   		return $this->hashMany('App/Image');
+   		return $this->hashMany('App\Image');
 
 
    	}
 
    	Public function tags(){
 
-   		return $this->belongsToMany('App/Tag');
+   		return $this->belongsToMany('App\Tag');
 
    	} 
 

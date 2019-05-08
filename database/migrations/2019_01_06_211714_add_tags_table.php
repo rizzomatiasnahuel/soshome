@@ -22,7 +22,7 @@ class AddTagsTable extends Migration
             $table->timestamps();
         });
         //articles & tags = articles & tag =article_tag
-        Schema::create('article_tag', function(Blueprint $table) {
+         Schema::create('article_tag', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('article_id')->unsigned();
             $table->integer('tag_id')->unsigned();
@@ -33,6 +33,9 @@ class AddTagsTable extends Migration
             $table->timestamps();
 
         });
+
+
+       
 
     }
 
@@ -45,5 +48,6 @@ class AddTagsTable extends Migration
     {
         Schema::dropIfExists('tags');
         Schema::drop('article_tag');
+       
     }
 }

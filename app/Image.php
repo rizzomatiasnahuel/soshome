@@ -12,9 +12,9 @@ class Image extends Model
     Protected $fillable =['name','article_id'];
 
 
-    Public function article{
+    Public function article(){
 
-    	return $this->belongsTo('App/article');
+    	return $this->belongsTo('App\Article');
 
     }
 

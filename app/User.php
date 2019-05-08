@@ -31,7 +31,7 @@ class User extends Authenticatable
 
     Public function articles(){
 
-        return $this->hashMany('App\article');
+        return $this->hashMany('App\Article');
 
 
     }
