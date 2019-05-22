@@ -10,7 +10,7 @@
 	<!-- Buscador de articulos-->
 		<form action="{{ url('/searchArticles') }}" method="GET">
 						<div class="input-group" >
-							<input type="search" name="search" class="form-control">
+							<input type="searchArticles" name="searchArticles" class="form-control">
 							<span class="input-group-prepend">
 								<button type="submit" class="btn btn-primary">Search</button>
 								

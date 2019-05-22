@@ -28,7 +28,7 @@ class TagsController extends Controller
     {
 
         $search = $request->get('search');
-        $tags = DB::table('tags')->Where('name','like',"%" . $search. "%")->paginate(5);
+        $tags = DB::table('tags')->Where('name','like',"%" . $search. "%")->paginate(10);
         return view('tags.index', ['tags' => $tags]);
  
     }

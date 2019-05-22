@@ -11,9 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Start Rutas del Front 
+
+Route::get('/','FrontController@index');
+
+Route::get('categories/{name}',[
+		'uses' => 'FrontController@searchCategory',
+		'as' =>  'Front.search.category'
+
+]);
+
+
+Route::get('tags/{name}',[
+		'uses' => 'FrontController@searchTag',
+		'as' =>  'Front.search.tag'
+
+]);
+
+//End Rutas del Front
+
 
 
 //Route::group(['prefix'=>'admin'], function(){
@@ -41,9 +58,25 @@ Route::get('/', function () {
 
 		Route::get('/search','TagsController@search');	
 
-		Route::resource('articles','ArticlesController');
 		
-		Route::get('/searchArticles','ArticlesController@search');			
+		Route::resource('articles','ArticlesController');
+
+		Route::get('articles/{id}/destroy',[
+						'uses' => 'ArticlesController@destroy',
+						'as'   => 'articles.destroy'
+				]);
+		
+		Route::get('/searchArticles','ArticlesController@searchArticles');	
+
+		Route::get('imagesv' , [
+			'uses' => 'ImagesController@index',
+			'as' => 'images.index'	
+
+		]);
+
+
+
+
 //});
 
 

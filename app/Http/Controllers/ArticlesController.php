@@ -20,20 +20,29 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         
-        $articles = Article::orderBy('id','ASC')->paginate(50);
-        $articles ->each(function($articles){
-            $articles->Category;
-            $articles->user;
+        $articles = Article::all();
+        $categories = Category::all();
+        $users = User::all();
+      
 
-        });
+     
 
-        return view("articles.index",["articles"=> $articles]);
+        return view('articles.index',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
     }
 
-    
+
+  public function searchArticles(Request $request)
+    {
+
+        $searchArticles = $request->get('searchArticles');
+        $articles = Article::Where('title','like',"%" . $searchArticles. "%")->paginate(10);
+        return view('articles.index', ['articles' => $articles]);
+ 
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -65,7 +74,7 @@ class ArticlesController extends Controller
             
         $file = $request-> file('image');
         $name ='imgbase' . time(). '.' . $file->getClientOriginalExtension();
-        $path = public_path() . '/images/articles/';
+        $path = public_path() . '/storage/';
         $file-> move($path, $name);
         
 
@@ -105,7 +114,18 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+         $articles = Article::find($id);
+         // $articles = Article::all();
+        
+        $categories = Category::all()->pluck('name','id');
+        $users = User::all();
+        $tags = Tag::all()->pluck('name','id');
+
+        return view('articles.edit',
+            ['articles'=> $articles ,
+             'categories'=> $categories ,
+             'users'=> $users,
+              'tags'=> $tags  ]);
     }
 
     /**
@@ -117,7 +137,13 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article -> fill($request->all());
+        $article -> save();
+
+        $article->tags()->sync($request->tags);
+
+        return redirect("/articles");
     }
 
     /**
@@ -128,6 +154,8 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article -> delete();
+        return redirect("/articles");
     }
 }
