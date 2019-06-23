@@ -2,6 +2,7 @@
 
 @section("content")
 
+{{ dd($categories) }}
 
 <h1 align="CENTER">SOSHOME</h1>
 
@@ -17,12 +18,13 @@
 				  <div class="col-sm-6 col-md-6">
 				    <div class="thumbnail" >
 				    	<a href="">
-				      	<img src="{{ asset('storage/'.$article->image) }}" 
+				    	@foreach($article->images as $image)	
+				      	<img src="{{  asset('storage/'.$image->name)  }}" 
 										 
 									style="width: 350px; height: 250px" 
 									class="img-responsive" 
-									alt=""
-						>
+									alt="">
+						@endforeach			
 						</a>
 				      <div class="caption">
 				        <h3>
@@ -39,20 +41,10 @@
 			  </div>
 			  <div class="col-md-2">
 
-					
+				@include('front.partials.aside')
 
-					<div class="list-group">
-
-						
-								  <a href="#" class="list-group-item ">Cras justo odio</a>
-								  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-								  <a href="#" class="list-group-item">Morbi leo risus</a>
-								  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-								  <a href="#" class="list-group-item">Vestibulum at eros</a>
-					</div>
-
-
-
+			  
+				
 			  </div>
 			
 			

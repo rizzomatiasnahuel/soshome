@@ -14,20 +14,23 @@
 
 // Start Rutas del Front 
 
-Route::get('/','FrontController@index');
+//Route::get('/','FrontController@index');
+Route::get('/',[
+		'uses' => 'FrontController@index',
+		'as' =>  'front.index'
+
+]);
+
 
 Route::get('categories/{name}',[
-		'uses' => 'FrontController@searchCategory',
-		'as' =>  'Front.search.category'
+		'uses' => 'FrontController@searchFrontcategory',
+		'as' =>  'front.search.category'
 
 ]);
+//Route::get('/searchFrontcategory','FrontController@searchFrontcategory');
 
 
-Route::get('tags/{name}',[
-		'uses' => 'FrontController@searchTag',
-		'as' =>  'Front.search.tag'
 
-]);
 
 //End Rutas del Front
 

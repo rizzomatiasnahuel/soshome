@@ -26,7 +26,7 @@ class Article extends Model
 
    	Public function images(){
 
-   		return $this->hashMany('App\Image');
+   		return $this->hasMany('App\Image');
 
 
    	}

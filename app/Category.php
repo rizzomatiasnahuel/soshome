@@ -12,8 +12,16 @@ class Category extends Model
 
     Public function articles(){
 
-    	return $this->hashMany('App\Article');
+    	return $this->hasMany('App\Article');
 
     } 
+
+    Public function scopesearchFrontcategory($query, $name){
+
+    			return $query->where('name','=',$name);
+
+
+    }
+
 
 }
