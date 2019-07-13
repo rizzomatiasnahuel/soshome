@@ -22,8 +22,8 @@ Route::get('/',[
 ]);
 
 
-Route::get('categories/{name}',[
-		'uses' => 'FrontController@searchFrontcategory',
+Route::get('categories/{id}',[
+		'uses' => 'FilterController@searchFrontcategory',
 		'as' =>  'front.search.category'
 
 ]);

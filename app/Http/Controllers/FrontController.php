@@ -18,7 +18,7 @@ class FrontController extends Controller
      */
     public function index()
     {
-        
+        $categories = Category::all();
         $articles = Article::all();
        // $categories = Category::all();
        //$articles = $category->articles;
@@ -27,29 +27,11 @@ class FrontController extends Controller
                  $articles->images;
                   });  
        
-        return view('front.index')->with('articles', $articles );
+        //return view('front.index')->with('articles', $articles, 'categories', $categories );
+        return view('front.index',['articles'=> $articles , 'categories'=> $categories  ]);
     }
 
-    public function searchFrontcategory($name)
-    {       
 
-
-        $category = Category::searchFrontcategory($name)->first();
-        $articles = $category->articles;
-        $articles->each(function($articles){
-                $articles->category;
-                 $articles->images;
-
-        });   
-
-        // dd($articles);   
-        //$articles = Article::all();
-        
-        return view("front.index")->with('articles', $articles );
-           
-
- 
-    }
 
 
 }

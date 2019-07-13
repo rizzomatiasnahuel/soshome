@@ -5,7 +5,7 @@
 								@foreach($categories as $category)
 								<li class="list-group-item">
 								  
-										<a href="{{ route('front.search.category', $category->name)}}">
+										<a href="{{ route('front.search.category', $category->id)}}">
 										{{ $category->name }}
 										</a>
 								</li>

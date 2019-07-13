@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
+//use Illuminate\Support\Facades\View;
+use App\Category;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -14,7 +15,18 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['front.index'], 'App\Http\ViewComposers\AsideComposer');
+
+
+         view()->composer('*', function ($view){
+            $categories = Category::all();
+
+            return $view->with('categories', $categories);
+
+         });   
+        
+        
+
+        //View::composer(['front.index'], 'App\Http\ViewComposers\AsideComposer');
 
 
     }
