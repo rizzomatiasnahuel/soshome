@@ -14,9 +14,11 @@
                         </div>
                     @endif
 
+                    posta <br>
+                            awdawdawdw
                     You are logged in!
                     <br>
-                    <a href="{{ route('list') }}">See the user's list</a>
+                    <a href="{{ url('/') }}">See the user's list</a>
                 </div>
             </div>
         </div>
