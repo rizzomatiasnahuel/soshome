@@ -44,6 +44,20 @@ Route::get('categories/{id}',[
 				'as'   => 'users.destroy'
 		]);
 
+		Route::get('categories/{id}',[
+		'uses' => 'FilterController@searchFrontcategory',
+		'as' =>  'front.search.category'
+
+]);
+
+
+		Route::resource('cate','CateController');
+		Route::get('cate/{id}/destroy',[
+						'uses' => 'CateController@destroy',
+						'as'   => 'cate.destroy'
+				]);
+
+
 
 
 		Route::resource('categories','CategoriesController');

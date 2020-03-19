@@ -11,7 +11,7 @@
 <div class="container">
 <table class="table table-bordered">
 	<div class="floating">
-	<a href="{{url('/categories/create')}}" class="btn btn-primary btn-fab">
+	<a href="{{url('/cate/create')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">Agregar</i>
 	</a>
 	</div>
@@ -31,8 +31,8 @@
 			
 			
 				<td>
-					<a href="{{route('categories.destroy',$category->id)}}" class="btn btn-danger">Eliminar</a>
-					<a href="{{route('categories.edit',$category->id)}}" class="btn btn-warning">Editar</a>
+					<a href="{{route('cate.destroy',$category->id)}}" class="btn btn-danger">Eliminar</a>
+					<a href="{{route('cate.edit',$category->id)}}" class="btn btn-warning">Editar</a>
 				</td>
 				
 			</tr>
