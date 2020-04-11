@@ -35,29 +35,35 @@
                 </button>
 
                 
-                   <ul class="navbar-nav ml-auto">
-
-                        <!-- Navegation Links -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('users') }}">users</a>
-                            </li>
-                            <li class="nav-item">
-                               <a class="nav-link" href="{{ url('tags') }}">tags</a>
-                            </li>
-                            <li class="nav-item">
-                               <a class="nav-link" href="{{ url('imagesv') }}">images</a>
-                            </li>
-                            <li class="nav-item">
-                               <a class="nav-link"  href="{{ url('articles') }}">Articles</a>
-                            </li>
-                             <li class="nav-item">
-                               <a class="nav-link"  href="{{ url('cate') }}">Categorias</a>
-                            </li>
-
-                    </ul>
+            
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+                        <div>
+                            <ul class="navbar-nav ml-auto" alig="center" >
+
+                            <!-- Navegation Links -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('users') }}">users</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ url('tags') }}">tags</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ url('imagesv') }}">images</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link"  href="{{ url('articles') }}">Articles</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link"  href="{{ url('cate') }}">Categorias</a>
+                                </li>
+
+                            </ul>
+                          </div>
+            
+            
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 

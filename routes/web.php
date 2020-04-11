@@ -22,11 +22,7 @@ Route::get('/',[
 ]);
 
 
-Route::get('categories/{id}',[
-		'uses' => 'FilterController@searchFrontcategory',
-		'as' =>  'front.search.category'
 
-]);
 //Route::get('/searchFrontcategory','FrontController@searchFrontcategory');
 
 
@@ -36,7 +32,7 @@ Route::get('categories/{id}',[
 
 
 
-//Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix'=>'admin'], function(){
 
 		Route::resource('users','UsersController');
 		Route::get('users/{id}/destroy',[
@@ -48,7 +44,7 @@ Route::get('categories/{id}',[
 		'uses' => 'FilterController@searchFrontcategory',
 		'as' =>  'front.search.category'
 
-]);
+		]);
 
 
 		Route::resource('cate','CateController');
@@ -65,6 +61,13 @@ Route::get('categories/{id}',[
 						'uses' => 'CategoriesController@destroy',
 						'as'   => 'categories.destroy'
 				]);
+
+		Route::get('categories/{id}',[
+				'uses' => 'FilterController@searchFrontcategory',
+				'as' =>  'front.search.category'
+
+		]);
+
 
 
 		Route::resource('tags','TagsController');
@@ -94,7 +97,7 @@ Route::get('categories/{id}',[
 
 
 
-//});
+});
 
 
 
@@ -113,9 +116,16 @@ Route::get('/list', 'ListController@index')->name('list');
 Auth::routes();
 Auth::routes();
 
-Route::resource('products','ProductsController');
+
 
 
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'admin'], function () {
+   
+
+Route::resource('products','ProductsController');
+
+   
+});
