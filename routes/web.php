@@ -22,6 +22,12 @@ Route::get('/',[
 ]);
 
 
+Route::get('imagesv' , [
+	'uses' => 'ImagesController@index',
+	'as' => 'images.index'	
+
+]);
+
 
 //Route::get('/searchFrontcategory','FrontController@searchFrontcategory');
 
@@ -34,67 +40,7 @@ Route::get('/',[
 
 Route::group(['prefix'=>'admin'], function(){
 
-		Route::resource('users','UsersController');
-		Route::get('users/{id}/destroy',[
-				'uses' => 'UsersController@destroy',
-				'as'   => 'users.destroy'
-		]);
-
-		Route::get('categories/{id}',[
-		'uses' => 'FilterController@searchFrontcategory',
-		'as' =>  'front.search.category'
-
-		]);
-
-
-		Route::resource('cate','CateController');
-		Route::get('cate/{id}/destroy',[
-						'uses' => 'CateController@destroy',
-						'as'   => 'cate.destroy'
-				]);
-
-
-
-
-		Route::resource('categories','CategoriesController');
-		Route::get('categories/{id}/destroy',[
-						'uses' => 'CategoriesController@destroy',
-						'as'   => 'categories.destroy'
-				]);
-
-		Route::get('categories/{id}',[
-				'uses' => 'FilterController@searchFrontcategory',
-				'as' =>  'front.search.category'
-
-		]);
-
-
-
-		Route::resource('tags','TagsController');
-		Route::get('tags/{id}/destroy',[
-						'uses' => 'TagsController@destroy',
-						'as'   => 'tags.destroy'
-				]);
-
-		Route::get('/search','TagsController@search');	
-
-		
-		Route::resource('articles','ArticlesController');
-
-		Route::get('articles/{id}/destroy',[
-						'uses' => 'ArticlesController@destroy',
-						'as'   => 'articles.destroy'
-				]);
-		
-		Route::get('/searchArticles','ArticlesController@searchArticles');	
-
-		Route::get('imagesv' , [
-			'uses' => 'ImagesController@index',
-			'as' => 'images.index'	
-
-		]);
-
-
+	
 
 
 });
@@ -122,10 +68,69 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 Route::group(['middleware' => 'admin'], function () {
    
 
-Route::resource('products','ProductsController');
+						Route::resource('products','ProductsController');
+
+
+
+
+						Route::resource('users','UsersController');
+						Route::get('users/{id}/destroy',[
+								'uses' => 'UsersController@destroy',
+								'as'   => 'users.destroy'
+						]);
+
+						Route::get('categories/{id}',[
+						'uses' => 'FilterController@searchFrontcategory',
+						'as' =>  'front.search.category'
+
+						]);
+
+
+						Route::resource('cate','CateController');
+						Route::get('cate/{id}/destroy',[
+										'uses' => 'CateController@destroy',
+										'as'   => 'cate.destroy'
+								]);
+
+
+
+
+						Route::resource('categories','CategoriesController');
+						Route::get('categories/{id}/destroy',[
+										'uses' => 'CategoriesController@destroy',
+										'as'   => 'categories.destroy'
+								]);
+
+						Route::get('categories/{id}',[
+								'uses' => 'FilterController@searchFrontcategory',
+								'as' =>  'front.search.category'
+
+						]);
+
+
+
+						Route::resource('tags','TagsController');
+						Route::get('tags/{id}/destroy',[
+										'uses' => 'TagsController@destroy',
+										'as'   => 'tags.destroy'
+								]);
+
+						Route::get('/search','TagsController@search');	
+
+
+						Route::resource('articles','ArticlesController');
+
+						Route::get('articles/{id}/destroy',[
+										'uses' => 'ArticlesController@destroy',
+										'as'   => 'articles.destroy'
+								]);
+
+						Route::get('/searchArticles','ArticlesController@searchArticles');	
 
    
 });
