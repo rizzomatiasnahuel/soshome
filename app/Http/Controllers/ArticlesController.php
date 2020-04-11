@@ -30,7 +30,7 @@ class ArticlesController extends Controller
 
      
 
-        return view('admin.articles.index',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
+        return view('articles.index',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
     }
 
 
