@@ -45,21 +45,11 @@
 
                             <!-- Navegation Links -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('users') }}">users</a>
+                                    <a class="nav-link" href="{{ url('/') }}">Articles</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{ url('tags') }}">tags</a>
+                                <a class="nav-link" href="{{ url('imagesv') }}">Images</a>
                                 </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="{{ url('imagesv') }}">images</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link"  href="{{ url('articles') }}">Articles</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link"  href="{{ url('cate') }}">Categorias</a>
-                                </li>
-
                             </ul>
                           </div>
             

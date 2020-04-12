@@ -29,6 +29,15 @@ Route::get('imagesv' , [
 ]);
 
 
+Route::resource('articlesu','ArticlesUController');
+
+						Route::get('articlesu/{id}/destroy',[
+										'uses' => 'ArticlesUController@destroy',
+										'as'   => 'articlesu.destroy'
+								]);
+
+					//	Route::get('/searchArticles','ArticlesController@searchArticles');	
+
 //Route::get('/searchFrontcategory','FrontController@searchFrontcategory');
 
 
@@ -122,7 +131,6 @@ Route::group(['middleware' => 'admin'], function () {
 
 						Route::get('/search','TagsController@search');	
 
-
 						Route::resource('articles','ArticlesController');
 
 						Route::get('articles/{id}/destroy',[
@@ -131,6 +139,10 @@ Route::group(['middleware' => 'admin'], function () {
 								]);
 
 						Route::get('/searchArticles','ArticlesController@searchArticles');	
+
+
+
+						
 
    
 });

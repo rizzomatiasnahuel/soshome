@@ -21,6 +21,9 @@
                                         <li class="nav-item">
                                         <a class="nav-link"  href="{{ url('cate') }}">Categorias</a>
                                         </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link"  href="{{ url('articles') }}">Articulos</a>
+                                        </li>
 
                                     </ul>
                                     </div>
