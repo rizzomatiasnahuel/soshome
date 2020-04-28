@@ -31,10 +31,10 @@ Route::get('imagesv' , [
 
 Route::resource('articlesu','ArticlesUController');
 
-						Route::get('articlesu/{id}/destroy',[
-										'uses' => 'ArticlesUController@destroy',
-										'as'   => 'articlesu.destroy'
-								]);
+Route::get('articlesu/{id}/destroy',[
+		'uses' => 'ArticlesUController@destroy',
+		'as'   => 'articlesu.destroy'
+]);
 
 					//	Route::get('/searchArticles','ArticlesController@searchArticles');	
 
@@ -73,15 +73,17 @@ Auth::routes();
 
 
 
+Route::get('/home', 'HomeController@home');
 
+Route::group(['middleware' => 'home'], function () {
+					Route::get('/homeu', 'HomeController@homeu');
 
-
-Route::get('/home', 'HomeController@index')->name('home');
+});
 
 
 Route::group(['middleware' => 'admin'], function () {
    
-
+						
 						Route::resource('products','ProductsController');
 
 

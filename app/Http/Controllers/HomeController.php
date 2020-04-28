@@ -21,8 +21,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function home(Request $request)
     {
-        return view('home');
+        if( $request->user()->type== 'admin'){
+            return view('/home');
+        }if( $request->user()->type== 'menber'){
+            return view('/homeu');
+        }
+        
+    }
+    public function homeu()
+    {
+        
+            return view('/homeu');
+       
     }
 }
