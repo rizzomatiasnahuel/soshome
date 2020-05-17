@@ -84,8 +84,7 @@ Route::group(['middleware' => 'home'], function () {
 Route::group(['middleware' => 'admin'], function () {
    
 						
-						Route::resource('products','ProductsController');
-
+					
 
 
 
@@ -95,33 +94,7 @@ Route::group(['middleware' => 'admin'], function () {
 								'as'   => 'users.destroy'
 						]);
 
-						Route::get('categories/{id}',[
-						'uses' => 'FilterController@searchFrontcategory',
-						'as' =>  'front.search.category'
-
-						]);
-
-
-						Route::resource('cate','CateController');
-						Route::get('cate/{id}/destroy',[
-										'uses' => 'CateController@destroy',
-										'as'   => 'cate.destroy'
-								]);
-
-
-
-
-						Route::resource('categories','CategoriesController');
-						Route::get('categories/{id}/destroy',[
-										'uses' => 'CategoriesController@destroy',
-										'as'   => 'categories.destroy'
-								]);
-
-						Route::get('categories/{id}',[
-								'uses' => 'FilterController@searchFrontcategory',
-								'as' =>  'front.search.category'
-
-						]);
+					
 
 
 
@@ -143,8 +116,30 @@ Route::group(['middleware' => 'admin'], function () {
 						Route::get('/searchArticles','ArticlesController@searchArticles');	
 
 
-
+						Route::get('cate/{id}/destroy',[
+							'uses' => 'CateController@destroy',
+							'as'   => 'cate.destroy'
+					]);
+		
 						
 
    
 });
+
+
+		Route::get('cate/{id}',[
+			'uses' => 'FilterController@searchFrontcategory',
+			'as' =>  'front.search.category'
+
+			]);
+
+
+	Route::resource('cate','CateController');
+
+
+
+	Route::resource('products','ProductsController');
+
+
+
+	
