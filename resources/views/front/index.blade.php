@@ -27,8 +27,12 @@
 						@endforeach			
 						</a>
 				      <div class="caption">
-				        <h3>
+				        <h3> 
+						<a href="{{ route('articles.show', $article->id) }}">
+
+
 				        	{{$article->title }}
+						</a>	
 				        </h3>
 				        <p>{{$article->content }}</p>
 				        <p><a href="#" class="btn btn-primary" role="button">{{$article->category->name }}</a></p>

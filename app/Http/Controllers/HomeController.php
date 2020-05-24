@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\ShoppingCart;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function home(Request $request)
     {
+
+
         if( $request->user()->type== 'admin'){
             return view('/home');
         }if( $request->user()->type== 'menber'){

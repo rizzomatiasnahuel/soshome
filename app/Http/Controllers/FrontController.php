@@ -7,8 +7,6 @@ use App\Article;
 use App\Category;
 use Illuminate\Support\Facades\DB;
 
-
-
 class FrontController extends Controller
 {
     /**
@@ -18,6 +16,7 @@ class FrontController extends Controller
      */
     public function index()
     {
+        
         $categories = Category::all();
         $articles = Article::all();
        // $categories = Category::all();
@@ -28,7 +27,7 @@ class FrontController extends Controller
                   });  
        
         //return view('front.index')->with('articles', $articles, 'categories', $categories );
-        return view('front.index',['articles'=> $articles , 'categories'=> $categories  ]);
+        return view('front.index',['articles'=> $articles , 'categories'=> $categories]);
     }
 
 
