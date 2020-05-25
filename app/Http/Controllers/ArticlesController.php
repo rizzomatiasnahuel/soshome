@@ -51,7 +51,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        $categories= Category::orderBy('name','ASC')->pluck('name','id');
+        $categories= Category::pluck('name','id');
         $tags = Tag::orderBy('name','ASC')->pluck('name','id');
 
         return view('articles.create')
@@ -82,7 +82,7 @@ class ArticlesController extends Controller
 
         $article = new Article($request->all());
         $article->user_id = \Auth::user()->id;
-        $article -> save();
+        $article ->save();
 
        $article->tags()->sync($request->tags);
 

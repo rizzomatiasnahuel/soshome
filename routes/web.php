@@ -12,6 +12,9 @@
 */
 
 
+
+
+
 // Start Rutas del Front 
 
 //Route::get('/','FrontController@index');
@@ -116,10 +119,7 @@ Route::group(['middleware' => 'admin'], function () {
 						Route::get('/searchArticles','ArticlesController@searchArticles');	
 
 
-						Route::get('cate/{id}/destroy',[
-							'uses' => 'CateController@destroy',
-							'as'   => 'cate.destroy'
-					]);
+					
 		
 						
 
@@ -127,18 +127,35 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 
-		Route::get('cate/{id}',[
+		Route::get('cates/{id}',[
 			'uses' => 'FilterController@searchFrontcategory',
 			'as' =>  'front.search.category'
 
 			]);
 
 
-	Route::resource('cate','CateController');
+	Route::resource('cates','CatesController');
+
+	Route::get('cates/{id}/destroy',[
+		'uses' => 'CatesController@destroy',
+		'as'   => 'cates.destroy'
+]);
 
 
 
-	Route::resource('products','ProductsController');
+Route::resource('categories','CategoriesController');
+Route::get('categories/{id}/destroy',[
+	'uses' => 'CategoriesController@destroy',
+	'as'   => 'categories.destroy'
+]);
+
+Route::get('categories/{id}',[
+	'uses' => 'FilterController@searchFrontcategory',
+	'as' =>  'front.search.category'
+
+	]);
+
+Route::resource('products','ProductsController');
 
 
 

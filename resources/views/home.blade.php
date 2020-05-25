@@ -19,7 +19,7 @@
                                         <a class="nav-link" href="{{ url('tags') }}">Tags</a>
                                         </li>
                                         <li class="nav-item">
-                                        <a class="nav-link"  href="{{ url('cate') }}">Categorias</a>
+                                        <a class="nav-link"  href="{{ url('categories') }}">Categorias</a>
                                         </li>
                                         <li class="nav-item">
                                         <a class="nav-link"  href="{{ url('articles') }}">Articulos</a>
