@@ -169,7 +169,7 @@ return [
 
         
 
-        Laracasts\Flash\FlashServiceProvider::class,
+        //Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 

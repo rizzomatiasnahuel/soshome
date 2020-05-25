@@ -11,7 +11,7 @@
 <div class="container">
 <table class="table table-bordered">
 	<div class="floating">
-	<a href="{{url('/cates/create')}}" class="btn btn-primary btn-fab">
+	<a href="{{url('/categories/create')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">Agregar</i>
 	</a>
 	</div>

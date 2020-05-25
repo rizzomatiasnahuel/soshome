@@ -12,7 +12,29 @@
 */
 
 
+ //Clear route cache:
+ Route::get('/route-cache', function() {
+	$exitCode = Artisan::call('route:cache');
+	return 'Routes cache cleared';
+});
 
+//Clear config cache:
+Route::get('/config-cache', function() {
+	$exitCode = Artisan::call('config:cache');
+	return 'Config cache cleared';
+}); 
+
+// Clear application cache:
+Route::get('/clear-cache', function() {
+	$exitCode = Artisan::call('cache:clear');
+	return 'Application cache cleared';
+});
+
+// Clear view cache:
+Route::get('/view-clear', function() {
+	$exitCode = Artisan::call('view:clear');
+	return 'View cache cleared';
+});
 
 
 // Start Rutas del Front 
@@ -33,7 +55,6 @@ Route::get('imagesv' , [
 
 
 Route::resource('articlesu','ArticlesUController');
-
 Route::get('articlesu/{id}/destroy',[
 		'uses' => 'ArticlesUController@destroy',
 		'as'   => 'articlesu.destroy'
@@ -126,12 +147,11 @@ Route::group(['middleware' => 'admin'], function () {
    
 });
 
-
 		Route::get('cates/{id}',[
 			'uses' => 'FilterController@searchFrontcategory',
 			'as' =>  'front.search.category'
 
-			]);
+		]);
 
 
 	Route::resource('cates','CatesController');
@@ -143,17 +163,17 @@ Route::group(['middleware' => 'admin'], function () {
 
 
 
-Route::resource('categories','CategoriesController');
-Route::get('categories/{id}/destroy',[
-	'uses' => 'CategoriesController@destroy',
-	'as'   => 'categories.destroy'
-]);
+	Route::resource('categories','CategoriesController');
+//	Route::get('categories/{id}/destroy',[
+//		'uses' => 'CategoriesController@destroy',
+//		'as'   => 'categories.destroy'
+//	]);
 
-Route::get('categories/{id}',[
-	'uses' => 'FilterController@searchFrontcategory',
-	'as' =>  'front.search.category'
+//	Route::get('categories/{id}',[
+//		'uses' => 'FilterController@searchFrontcategory',
+//		'as' =>  'front.search.category'
 
-	]);
+//		]);
 
 Route::resource('products','ProductsController');
 
