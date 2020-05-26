@@ -12,6 +12,31 @@
 */
 
 
+ //Clear route cache:
+ Route::get('/route-cache', function() {
+	$exitCode = Artisan::call('route:cache');
+	return 'Routes cache cleared';
+});
+
+//Clear config cache:
+Route::get('/config-cache', function() {
+	$exitCode = Artisan::call('config:cache');
+	return 'Config cache cleared';
+}); 
+
+// Clear application cache:
+Route::get('/clear-cache', function() {
+	$exitCode = Artisan::call('cache:clear');
+	return 'Application cache cleared';
+});
+
+// Clear view cache:
+Route::get('/view-clear', function() {
+	$exitCode = Artisan::call('view:clear');
+	return 'View cache cleared';
+});
+
+
 // Start Rutas del Front 
 
 //Route::get('/','FrontController@index');
@@ -22,11 +47,21 @@ Route::get('/',[
 ]);
 
 
-Route::get('categories/{id}',[
-		'uses' => 'FilterController@searchFrontcategory',
-		'as' =>  'front.search.category'
+Route::get('imagesv' , [
+	'uses' => 'ImagesController@index',
+	'as' => 'images.index'	
 
 ]);
+
+
+Route::resource('articlesu','ArticlesUController');
+Route::get('articlesu/{id}/destroy',[
+		'uses' => 'ArticlesUController@destroy',
+		'as'   => 'articlesu.destroy'
+]);
+
+					//	Route::get('/searchArticles','ArticlesController@searchArticles');	
+
 //Route::get('/searchFrontcategory','FrontController@searchFrontcategory');
 
 
@@ -36,51 +71,12 @@ Route::get('categories/{id}',[
 
 
 
-//Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix'=>'admin'], function(){
 
-		Route::resource('users','UsersController');
-		Route::get('users/{id}/destroy',[
-				'uses' => 'UsersController@destroy',
-				'as'   => 'users.destroy'
-		]);
+	
 
 
-
-		Route::resource('categories','CategoriesController');
-		Route::get('categories/{id}/destroy',[
-						'uses' => 'CategoriesController@destroy',
-						'as'   => 'categories.destroy'
-				]);
-
-
-		Route::resource('tags','TagsController');
-		Route::get('tags/{id}/destroy',[
-						'uses' => 'TagsController@destroy',
-						'as'   => 'tags.destroy'
-				]);
-
-		Route::get('/search','TagsController@search');	
-
-		
-		Route::resource('articles','ArticlesController');
-
-		Route::get('articles/{id}/destroy',[
-						'uses' => 'ArticlesController@destroy',
-						'as'   => 'articles.destroy'
-				]);
-		
-		Route::get('/searchArticles','ArticlesController@searchArticles');	
-
-		Route::get('imagesv' , [
-			'uses' => 'ImagesController@index',
-			'as' => 'images.index'	
-
-		]);
-
-
-
-
-//});
+});
 
 
 
@@ -99,9 +95,88 @@ Route::get('/list', 'ListController@index')->name('list');
 Auth::routes();
 Auth::routes();
 
+
+
+Route::get('/home', 'HomeController@home');
+
+Route::group(['middleware' => 'home'], function () {
+					Route::get('/homeu', 'HomeController@homeu');
+
+});
+
+
+Route::group(['middleware' => 'admin'], function () {
+   
+						
+					
+
+
+
+						Route::resource('users','UsersController');
+						Route::get('users/{id}/destroy',[
+								'uses' => 'UsersController@destroy',
+								'as'   => 'users.destroy'
+						]);
+
+					
+
+
+
+						Route::resource('tags','TagsController');
+						Route::get('tags/{id}/destroy',[
+										'uses' => 'TagsController@destroy',
+										'as'   => 'tags.destroy'
+								]);
+
+						Route::get('/search','TagsController@search');	
+
+						Route::resource('articles','ArticlesController');
+
+						Route::get('articles/{id}/destroy',[
+										'uses' => 'ArticlesController@destroy',
+										'as'   => 'articles.destroy'
+								]);
+
+						Route::get('/searchArticles','ArticlesController@searchArticles');	
+
+
+					
+		
+						
+
+   
+});
+
+		Route::get('cates/{id}',[
+			'uses' => 'FilterController@searchFrontcategory',
+			'as' =>  'front.search.category'
+
+		]);
+
+
+	Route::resource('cates','CatesController');
+
+	Route::get('cates/{id}/destroy',[
+		'uses' => 'CatesController@destroy',
+		'as'   => 'cates.destroy'
+]);
+
+
+
+	Route::resource('categories','CategoriesController');
+//	Route::get('categories/{id}/destroy',[
+//		'uses' => 'CategoriesController@destroy',
+//		'as'   => 'categories.destroy'
+//	]);
+
+//	Route::get('categories/{id}',[
+//		'uses' => 'FilterController@searchFrontcategory',
+//		'as' =>  'front.search.category'
+
+//		]);
+
 Route::resource('products','ProductsController');
 
 
 
-
-Route::get('/home', 'HomeController@index')->name('home');
+	

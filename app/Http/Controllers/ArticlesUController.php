@@ -13,7 +13,7 @@ use App\User;
 use Illuminate\Support\Facades\DB;
 
 
-class ArticlesController extends Controller
+class ArticlesUController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,23 +23,22 @@ class ArticlesController extends Controller
     public function index(Request $request)
     {
         
-        $articles = Article::all();
+        $articles = Article::all()->where('user_id', '=', $request->user()->id);
         $categories = Category::all();
         $users = User::all();
       
 
      
 
-        return view('articles.index',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
+        return view('articlesu.index',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
     }
 
-
-  public function searchArticles(Request $request)
+    public function searchArticles(Request $request)
     {
 
         $searchArticles = $request->get('searchArticles');
         $articles = Article::Where('title','like',"%" . $searchArticles. "%")->paginate(10);
-        return view('articles.index', ['articles' => $articles]);
+        return view('articlesu.index', ['articles' => $articles]);
  
     }
 
@@ -51,10 +50,10 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        $categories= Category::orderBy('name','ASC')->pluck('name','id')->get('id');
+        $categories= Category::orderBy('name','ASC')->pluck('name','id');
         $tags = Tag::orderBy('name','ASC')->pluck('name','id');
 
-        return view('articles.create')
+        return view('articlesu.create')
                 ->with('categories',$categories)
                 ->with('tags',$tags);
     }
@@ -82,8 +81,7 @@ class ArticlesController extends Controller
 
         $article = new Article($request->all());
         $article->user_id = \Auth::user()->id;
-
-        $article ->save();
+        $article -> save();
 
        $article->tags()->sync($request->tags);
 
@@ -91,7 +89,7 @@ class ArticlesController extends Controller
        $image->name = $name;
        $image-> article()-> associate( $article);
        $image-> save();
-          return redirect()->route("articles.index");
+          return redirect()->route("articlesu.index");
 
 
     }
@@ -104,8 +102,7 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        $articles = Article::find($id);
-        return view('articles.show', ['articles' => $articles]);
+        //
     }
 
     /**
@@ -123,7 +120,7 @@ class ArticlesController extends Controller
         $users = User::all();
         $tags = Tag::all()->pluck('name','id');
 
-        return view('articles.edit',
+        return view('articlesu.edit',
             ['articles'=> $articles ,
              'categories'=> $categories ,
              'users'=> $users,
@@ -145,7 +142,7 @@ class ArticlesController extends Controller
 
         $article->tags()->sync($request->tags);
 
-        return redirect("/articles");
+        return redirect("/articlesu");
     }
 
     /**
@@ -158,6 +155,6 @@ class ArticlesController extends Controller
     {
         $article = Article::find($id);
         $article -> delete();
-        return redirect("/articles");
+        return redirect("/articlesu");
     }
 }

@@ -31,8 +31,8 @@
 			
 			
 				<td>
-					<a href="{{route('categories.destroy',$category->id)}}" class="btn btn-danger">Eliminar</a>
-					<a href="{{route('categories.edit',$category->id)}}" class="btn btn-warning">Editar</a>
+					<a href="{{route('cates.destroy',$category->id)}}" class="btn btn-danger">Eliminar</a>
+					<a href="{{route('cates.edit',$category->id)}}" class="btn btn-warning">Editar</a>
 				</td>
 				
 			</tr>

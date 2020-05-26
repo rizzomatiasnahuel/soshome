@@ -6,7 +6,7 @@
 <h1>Editar Articulo</h1>
 <!--Formulario-->
 
-{!! Form::open(['route' => ['articles.update',  $articles] ,'method' =>'PUT'])!!}
+{!! Form::open(['route' => ['articlesu.update',  $articles] ,'method' =>'PUT'])!!}
 
 
 	
@@ -44,7 +44,7 @@
 	<div class="form-group">
 		{!! Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 	
-		<a href="{{url('/articles')}}">
+		<a href="{{url('/articlesu')}}">
 		Regresar al listado  de articulos
 		</a>	
 	</div>
