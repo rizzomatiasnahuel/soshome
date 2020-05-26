@@ -23,7 +23,7 @@
 				<!--  Fin del Buscador de articulos-->
 <table class="table table-bordered">
 	<div class="floating">
-	<a href="{{url('/articles/create')}}" class="btn btn-primary btn-fab">
+	<a href="{{url('/articlesu/create')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">Agregar</i>
 	</a>
 	</div>
@@ -44,8 +44,8 @@
 				<td>{{$article->category->name}}</td>
 				<td>{{$article->user->name}}</td>
 				<td>
-					<a href="{{route('articles.destroy',$article->id)}}" class="btn btn-danger">Eliminar</a>
-					<a href="{{route('articles.edit',$article->id)}}" class="btn btn-warning">Editar</a>
+					<a href="{{route('articlesu.destroy',$article->id)}}" class="btn btn-danger">Eliminar</a>
+					<a href="{{route('articlesu.edit',$article->id)}}" class="btn btn-warning">Editar</a>
 					
 				</td>
 				

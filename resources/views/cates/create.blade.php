@@ -6,7 +6,7 @@
 <h1>Agregar Categoria</h1>
 <!--Formulario-->
 
-{!! Form::open(['route' =>'cate.store','method' =>'POST'])!!}
+{!! Form::open(['route' =>'cates.store','method' =>'POST'])!!}
 	
 	<div class="form-group">
 		{!! Form::label('name','Nombre')!!}
@@ -18,7 +18,7 @@
 	<div class="form-group">
 		{!! Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 	
-		<a href="{{url('/cate')}}">
+		<a href="{{url('/cates')}}">
 		Regresar al listado  de Categorias
 		</a>	
 	</div>

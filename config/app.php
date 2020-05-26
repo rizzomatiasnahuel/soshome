@@ -152,6 +152,7 @@ return [
          */
 
         Collective\Html\HtmlServiceProvider::class,
+        App\Providers\ShoppingCartProvider::class, 
 
         App\Providers\ComposerServiceProvider::class, 
 
@@ -168,7 +169,7 @@ return [
 
         
 
-        Laracasts\Flash\FlashServiceProvider::class,
+        //Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 

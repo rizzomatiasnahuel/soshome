@@ -14,11 +14,21 @@
 
 	</div>
 
+	<div>
+			<select id="id" name="category_id" class="form-control">
+				<option>------Seleccionar------</option>
+				@foreach($categories as $categories)
+				<option value="{{ $categories['id'] }}">{{ $categories['name'] }}</option>
+				@endforeach
+		</select>
 			
-			<div class="form-group">
-		  {!!Form::label('category_id', 'Categoria')!!}
-		  {!!Form::select('category_id', $categories,null, ['class'=>'form-control','placeholder'=>'Seleccione una opcion','required'])!!}
-		</div>
+			
+	</div>
+
+
+		
+			
+		
 
 		<div class="form-group">
 		  {!!Form::label('content', 'Contenido')!!}

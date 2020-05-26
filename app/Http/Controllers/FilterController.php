@@ -20,7 +20,7 @@ class FilterController extends Controller
         //$articles = Article::all();
         
        // return view("front.filter")->with('articles', $articles );
-          return view('front.index',['articles'=> $articles , 'categories'=> $categories  ]); 
+          return view('front.filter',['articles'=> $articles , 'categories'=> $categories  ]); 
 
  
     }
