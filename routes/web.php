@@ -177,6 +177,32 @@ Route::group(['middleware' => 'admin'], function () {
 
 Route::resource('products','ProductsController');
 
+Route::resource('in_shopping_carts','InShoppingCartsController');
 
 
-	
+//--------------------->Carrito
+
+Route::get('cart/show',[
+		'as'=> 'cart-show',
+		'uses'=>'CartController@show'
+]);	
+
+Route::get('cart/add/{article}',[
+	'as'=> 'cart-add',
+	'uses'=>'CartController@add'
+]);	
+
+Route::get('cart/destroy/{article}',[
+	'as'=> 'cart-destroy',
+	'uses'=>'CartController@destroy'
+]);	
+
+Route::get('cart/trash',[
+	'as'=> 'cart-trash',
+	'uses'=>'CartController@trash'
+]);	
+
+Route::get('cart/update/{article}/{quantity}', [ 
+	'as'=> 'cart-update',
+	'uses'=>'CartController@update'
+]);	

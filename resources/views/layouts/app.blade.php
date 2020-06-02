@@ -12,6 +12,20 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer>
+    $(document).ready(function () {
+
+      $(".btn-update-item").on('click',function(e){
+          e.preventDefault();
+
+          var id=$(this).data('id');
+          var href=$(this).data('href');
+          var quantity=$('#article_' + id).val();
+
+          window.location.href = href +"/"+ quantity;
+      });
+    });
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -63,12 +77,11 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item"> 
-                        <a href="" class="nav-link" >
-                        Mi Carrito
-                        <span class="circle-Shopping-cart">
-                            {{$shopping_cart ->articlesSize()}}
-                        </span>
-                        </a>
+                        
+
+                        </li>
+                        <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('cart-show') }}">Carrito</a>
                         </li>
                         @guest
                             <li class="nav-item">

@@ -35,7 +35,11 @@
 						</a>	
 				        </h3>
 				        <p>{{$article->content }}</p>
-				        <p><a href="#" class="btn btn-primary" role="button">{{$article->category->name }}</a></p>
+				        <p><a href="#" class="btn btn-primary" role="button">{{$article->category->name }}</a>
+						<a href="{{ route('cart-add', $article->id ) }}" class="btn btn-danger" role="button">Agregar a carrito</a>
+						<a href="{{ route('cart-add', $article->id ) }}" class="btn btn-success" role="button">$ {{$article->pricing }}</a>
+						</p>
+						
 				      </div>
 				    </div>
 				  </div>

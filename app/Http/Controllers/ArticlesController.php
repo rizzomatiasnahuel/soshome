@@ -82,10 +82,10 @@ class ArticlesController extends Controller
 
         $article = new Article($request->all());
         $article->user_id = \Auth::user()->id;
-
+        $article->pricing = $request->pricing;    
         $article ->save();
 
-       $article->tags()->sync($request->tags);
+     $article->tags()->sync($request->tags);
 
        $image = new Image();
        $image->name = $name;
@@ -141,6 +141,8 @@ class ArticlesController extends Controller
     {
         $article = Article::find($id);
         $article -> fill($request->all());
+         
+
         $article -> save();
 
         $article->tags()->sync($request->tags);

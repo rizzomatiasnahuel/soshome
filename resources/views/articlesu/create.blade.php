@@ -25,7 +25,10 @@
 			
 			
 	</div>
-
+	<div class="form-group">
+		{!! Form::label('pricing','Precio')!!}	
+		{{Form::number('pricing', null,['class' => 'form-control', 'placeholder' => 'Precio de tu producto  en centavos  de dolar...' ]) }}
+		</div>
 		<div class="form-group">
 		  {!!Form::label('content', 'Contenido')!!}
 		  {!!Form::textarea('content',null, ['class'=>'form-control','placeholder'=>'Descripcion','required'])!!}

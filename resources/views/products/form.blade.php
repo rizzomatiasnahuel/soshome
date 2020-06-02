@@ -8,7 +8,7 @@
 
 <div class="form-group">
 
-{{Form::number('pricing',$products->pricing,['class' => 'form-control', 'placeholder' => 'Precio de tu producto  en centavos  de dolar...' ]) }}
+{{Form::number('pricing' ,$products->pricing,['class' => 'form-control', 'placeholder' => 'Precio de tu producto  en centavos  de dolar...' ]) }}
 </div>
 
 <div class="form-group">
