@@ -202,7 +202,4 @@ Route::get('cart/trash',[
 	'uses'=>'CartController@trash'
 ]);	
 
-Route::get('cart/update/{article}/{quantity}', [ 
-	'as'=> 'cart-update',
-	'uses'=>'CartController@update'
-]);	
+Route::get('/cart/update-quantity/{id}/{quantity}','CartController@update');	

@@ -59,7 +59,7 @@ class CartController extends Controller
     public function show()
     {
           $cart = \Session::get('cart'); 
-          $total =$this->total();
+          $total = $this->total();
            return view('carts.cart', compact('cart', 'total'));
 
     }
@@ -94,7 +94,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-  public function update(Article $article, item $quantity)
+  public function update(Article $article,  $quantity)
     {   
         
         $cart = \Session::get('cart');

@@ -14,7 +14,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer>
     $(document).ready(function () {
-
+            
       $(".btn-update-item").on('click',function(e){
           e.preventDefault();
 
@@ -22,7 +22,7 @@
           var href=$(this).data('href');
           var quantity=$('#article_' + id).val();
 
-          window.location.href = href +"/"+ quantity;
+          window.location.href = href + "/" + quantity;
       });
     });
     </script>
