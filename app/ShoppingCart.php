@@ -10,8 +10,10 @@ class ShoppingCart extends Model
 {
     Protected $table = "shopping_carts";
 
-    protected $fillable = ["status"];
 
+    
+   /*  Protected $fillable =['article_id','article_name','pricing','quantity','user_email','session_id'];
+     */
 
     public function inShoppingCarts(){
         return $this->hasMany('App\Inshoppingcart');

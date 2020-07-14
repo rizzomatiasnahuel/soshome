@@ -60,15 +60,22 @@
 				<td>{{$item->title}}</td>
 				<td>{{$item->category->name }}</td>
                 <td>{{number_format ($item->pricing, 2 )}}</td>
-				<td class="cart_quantity">
-					<div class="cart_quantity_button">
-						<a class="cart_quantity_up" href="{{url('/cart/update-quantity/'. $item->id ,1)}}">+</a>	
-						<input class="cart_quantity_input" type="text" name="quantity" value="{{$item->quantity}}" autocomplete="off" size="2">
-						@if($item->quantity>1)
-							<a class="cart_quantity_down" href="{{url('/cart/update-quantity/'.$item->id,'/-1')}}"> - </a>
-						@endif
+				<td >
+					<input type="number"
+						    min="1"
+							max="100"
+							value="{{$item->quantity}}"		
+							id="article_{{$item->id}}"
+					>
+					<a href="{{route('cart-update',$item->id  )}}"
+						class="btn btn-warning btn-update-item"
+						data-href="{{route('cart-update', $item->id)}}"
+						data-id="{{$item->id}}"
 					
-					</div>		
+					>
+					<i class="fa fa-refresh">Refresh</i>
+					
+					</a>
     		
 				</td>
 				

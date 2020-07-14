@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Article;
-
+use App\Shoppincart;
+use DB;
 
 class CartController extends Controller
 {
@@ -63,8 +64,9 @@ class CartController extends Controller
            return view('carts.cart', compact('cart', 'total'));
 
     }
-    public function add(Article $article)
-    {
+    public function add(Article $article )
+    { 
+        
         $cart =\Session::get('cart');
         $article->quantity = 1;
         $cart[$article->id] = $article;
@@ -94,7 +96,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-  public function update(Article $article,  $quantity)
+  public function update(Article $article,  $quantity )
     {   
         
         $cart = \Session::get('cart');
