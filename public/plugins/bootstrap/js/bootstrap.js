@@ -3,7 +3,21 @@
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under the MIT license
  */
+$(document).ready(function(){
 
+
+  $(".btn-update-item").on('click',function(e){
+      e.preventDefault();
+
+      var id =$(this).data('id');
+      var href =$(this).data('href');
+      var quantity =$("#article_" + id).val();
+      
+      window.location.href = href + "/" + quantity;   
+
+});
+
+});
 if (typeof jQuery === 'undefined') {
   throw new Error('Bootstrap\'s JavaScript requires jQuery')
 }

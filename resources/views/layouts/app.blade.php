@@ -12,6 +12,20 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer>
+    $(document).ready(function () {
+            
+      $(".btn-update-item").on('click',function(e){
+          e.preventDefault();
+
+          var id=$(this).data('id');
+          var href=$(this).data('href');
+          var quantity=$('#article_' + id).val();
+
+          window.location.href = href + "/" + quantity;
+      });
+    });
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -45,21 +59,11 @@
 
                             <!-- Navegation Links -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('users') }}">users</a>
+                                    <a class="nav-link" href="{{ url('/') }}">Articles</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{ url('tags') }}">tags</a>
+                                <a class="nav-link" href="{{ url('imagesv') }}">Images</a>
                                 </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="{{ url('imagesv') }}">images</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link"  href="{{ url('articles') }}">Articles</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link"  href="{{ url('cate') }}">Categorias</a>
-                                </li>
-
                             </ul>
                           </div>
             
@@ -68,10 +72,17 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-
+                        
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item"> 
+                        
+
+                        </li>
+                        <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('cart-show') }}">Carrito</a>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -79,12 +90,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
+                            
                         @else
                             <li class="nav-item dropdown">
+                            
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -97,11 +109,28 @@
                                     </form>
                                 </div>
                             </li>
+                            
+                            
 
                         @endguest
+                        
                     </ul>
-                </div>
-            </div>
+                <div class="flex-center position-ref full-height">
+                    @if (Route::has('login'))
+                        <div class="top-right links">
+                            @auth
+                                <a href="{{ url('/home') }}">Home</a>
+                            @else
+                                
+                            @endauth
+                        </div>
+                    @endif
+                        
+                        
+                        </div>
+                    </div>
+
+                    
         </nav>
         <br>
         <main class="py-4">

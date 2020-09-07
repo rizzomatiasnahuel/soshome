@@ -12,17 +12,9 @@
                                     <ul class="navbar-nav ml-auto" alig="center" >
 
                                     <!-- Navegation Links -->
+                                        
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('users') }}">Usuarios</a>
-                                        </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('tags') }}">Tags</a>
-                                        </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link"  href="{{ url('cates') }}">Categorias</a>
-                                        </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link"  href="{{ url('articles') }}">Articulos</a>
+                                        <a class="nav-link"  href="{{ url('articlesu') }}">Articulos</a>
                                         </li>
 
                                     </ul>

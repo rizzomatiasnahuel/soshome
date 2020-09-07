@@ -32,6 +32,8 @@
 			<td>ID</td>
 			<td>Titulo</td>
 			<td>Categoria</td>
+			<td>Precio</td>
+
 			<td>User</td>
 			<td>Acciones</td>
 		</tr>
@@ -42,6 +44,7 @@
 				<td>{{$article->id}}</td>
 				<td>{{$article->title}}</td>
 				<td>{{$article->category->name}}</td>
+				<td>{{$article->pricing}}</td>	
 				<td>{{$article->user->name}}</td>
 				<td>
 					<a href="{{route('articles.destroy',$article->id)}}" class="btn btn-danger">Eliminar</a>
