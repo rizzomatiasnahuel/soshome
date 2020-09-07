@@ -61,15 +61,32 @@
 				<td>{{$item->category->name }}</td>
                 <td>{{number_format ($item->pricing, 2 )}}</td>
 				<td >
-					<input type="number"
+			{!! Form::open(['route' =>'cart-update','method' =>'POST'])!!}
+				
+				<div class="form-group">
+				<input type="number" name="quantity"
 						    min="1"
 							max="100"
 							value="{{$item->quantity}}"		
 							id="article_{{$item->id}}"
 					>
-					<a href="{{route('cart-update',$item->id  )}}"
+					{!! Form::hidden('id',$item->id)!!}
+					{!! Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+				</div>
+
+			{!! Form::close()!!}
+
+
+
+			<!-- 		<input type="number"
+						    min="1"
+							max="100"
+							value="{{$item->quantity}}"		
+							id="article_{{$item->id}}"
+					>
+					<a href="{{route('cart-update', ['id' => $item->id, 'quantity' => $item->quantity] )}}"
 						class="btn btn-warning btn-update-item"
-						data-href="{{route('cart-update', $item->id)}}"
+						data-href="{{route('cart-update', ['id' => $item->id, 'quantity' => $item->quantity])}}"
 						data-id="{{$item->id}}"
 					
 					>
@@ -77,7 +94,7 @@
 					
 					</a>
     		
-				</td>
+			 -->	</td>
 				
                 <td>{{number_format( $item->pricing * $item->quantity, 2 )}}</td>
 					

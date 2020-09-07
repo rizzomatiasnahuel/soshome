@@ -96,11 +96,12 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-  public function update(Article $article,  $quantity )
+  public function update(Request $request )
     {   
         
         $cart = \Session::get('cart');
-        $cart[$article->id]->quantity = $quantity;
+
+        $cart[$request->input('id')]->quantity = $request->input('quantity') ;
         \Session::put('cart', $cart);
 
         return redirect()->route('cart-show');
