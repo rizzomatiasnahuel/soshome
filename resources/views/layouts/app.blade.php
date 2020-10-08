@@ -8,24 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'SOShome') }}</title>
+    <title>{{ config('app.name', 'awdawdawdawdawdaw') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/app.js') }}" defer>
-    $(document).ready(function () {
-            
-      $(".btn-update-item").on('click',function(e){
-          e.preventDefault();
-
-          var id=$(this).data('id');
-          var href=$(this).data('href');
-          var quantity=$('#article_' + id).val();
-
-          window.location.href = href + "/" + quantity;
-      });
-    });
-    </script>
+   
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
