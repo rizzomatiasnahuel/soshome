@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Article;
 use App\Shoppincart;
@@ -141,5 +142,27 @@ class CartController extends Controller
          return $total;   
 
     }
+    
+
+    public function orderDetail(Request $request)
+    {
+
+        if (Auth::check()) {
+
+            if(count( \Session::get('cart')) <= 0 ) return redirect()->route('/home');
+                $cart = \Session::get('cart');
+                $total = $this->total();    
+ 
+            return view('carts.orderDetail', compact ('cart','total'));     
+
+        }else{
+            return redirect()->route('login');
+            
+        }
+     return "Intente nuevamente:)";
+    }
+
+
+
 
 }

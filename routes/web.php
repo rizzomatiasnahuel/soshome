@@ -207,3 +207,8 @@ Route::post('cart/update',[
 	'uses'=>'CartController@update'
 ]);
 
+
+Route::get('order/detail',[
+	'as'=> 'order-detail',
+	'uses'=>'CartController@orderDetail'
+]);	
