@@ -89,7 +89,7 @@
 		<i class="material-icons">Vaciar el Carrito</i>
 	</a>
     
-    <a href="{{route('order-detail')}}" class="btn btn-primary btn-fab">
+    <a href="{{route('payment')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">Continuar</i>
 	</a>
 

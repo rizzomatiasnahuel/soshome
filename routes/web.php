@@ -212,3 +212,4 @@ Route::get('order/detail',[
 	'as'=> 'order-detail',
 	'uses'=>'CartController@orderDetail'
 ]);	
+
