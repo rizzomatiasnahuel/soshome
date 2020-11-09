@@ -20,12 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-Route::get('payment', array(
+/* Route::get('payment', array(
 	'as' => 'payment',
-	'uses' => 'PaypalController@postPayment',
+	'uses' => 'PayPalController@postPayment',
 ));
 
 Route::get('payment/status', array(
 	'as' => 'payment.status',
-	'uses' => 'PaypalController@getPaymentStatus',
+	'uses' => 'PayPalController@getPaymentStatus',
 ));
+ */

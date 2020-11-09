@@ -182,6 +182,11 @@ Route::resource('in_shopping_carts','InShoppingCartsController');
 
 //--------------------->Carrito
 
+
+Route::group(['middleware' => 'web'], function () {
+    
+        
+ 
 Route::get('cart/show',[
 		'as'=> 'cart-show',
 		'uses'=>'CartController@show'
@@ -213,3 +218,15 @@ Route::get('order/detail',[
 	'uses'=>'CartController@orderDetail'
 ]);	
 
+Route::get('payment', array(
+	'as' => 'payment',
+	'uses' => 'PayPalController@postPayment',
+));
+
+Route::get('payment/status', array(
+	'as' => 'payment.status',
+	'uses' => 'PayPalController@getPaymentStatus',
+));
+
+
+});

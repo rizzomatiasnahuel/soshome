@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
@@ -19,11 +20,15 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
-
+use App\Paypal;
 use App\Order;
 use App\OrderItem;
+use App\Article;
 
-class PaypalController extends BaseController
+use App\Shoppincart;
+use DB;
+
+class PayPalController extends BaseController
 {	
 	private $_api_context;
 
@@ -33,10 +38,13 @@ class PaypalController extends BaseController
 		
 		$paypal_conf = \Config::get('paypal');
 	
-		require_once 'vendor/autoload.php'; 
+		require "../vendor/autoload.php";
+		
 
 		$this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
 		$this->_api_context->setConfig($paypal_conf['settings']);
+
+		
 	}
 
 	public function postPayment()
@@ -48,17 +56,19 @@ class PaypalController extends BaseController
 		$subtotal = 0;
 		$cart = \Session::get('cart');
 		$currency = 'USD';
-
-		foreach($cart as $producto){
+		
+		
+		foreach($cart as $article){
 			$item = new Item();
-			$item->setName($producto->name)
+			
+			$item->setName($article->name)
 			->setCurrency($currency)
-			->setDescription($producto->extract)
-			->setQuantity($producto->quantity)
-			->setPrice($producto->price);
+			->setDescription($article->extract)
+			->setQuantity($article->quantity)
+			->setPrice($article->pricing);
 
 			$items[] = $item;
-			$subtotal += $producto->quantity * $producto->price;
+			$subtotal += $article->quantity * $article->pricing;
 		}
 
 		$item_list = new ItemList();
@@ -92,10 +102,11 @@ class PaypalController extends BaseController
 
 		try {
 			$payment->create($this->_api_context);
-		} catch (\PayPal\Exception\PPConnectionException $ex) {
+		} catch (\PayPal\Exception\PayPalConnectionException  $ex) {
 			if (\Config::get('app.debug')) {
 				echo "Exception: " . $ex->getMessage() . PHP_EOL;
 				$err_data = json_decode($ex->getData(), true);
+				dd($err_data);
 				exit;
 			} else {
 				die('Ups! Algo salió mal');
