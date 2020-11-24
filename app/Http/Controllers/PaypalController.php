@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input; 
+
 
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
@@ -133,16 +135,17 @@ class PayPalController extends BaseController
 
 	}
 
-	public function getPaymentStatus()
+	public function getPaymentStatus(Request $request)
 	{
+
+		
+		 $payment_id=request()->get('paymentId');
 		// Get the payment ID before session clear
-		$payment_id = \Session::get('paypal_payment_id');
+		 // clear the session payment ID
+		\Session::forget('paypal_payment_id'); 
+		$payerId=request()->get('PayerID');
+		$token=request()->get('token');
 
-		// clear the session payment ID
-		\Session::forget('paypal_payment_id');
-
-		$payerId = \Input::get('PayerID');
-		$token = \Input::get('token');
 
 		if (empty($payerId) || empty($token)) {
 			return \Redirect::route('home')
@@ -152,7 +155,7 @@ class PayPalController extends BaseController
 		$payment = Payment::get($payment_id, $this->_api_context);
 
 		$execution = new PaymentExecution();
-		$execution->setPayerId(\Input::get('PayerID'));
+		$execution->setPayerId(request()->get('PayerID'));
 
 		$result = $payment->execute($execution, $this->_api_context);
 
@@ -176,7 +179,7 @@ class PayPalController extends BaseController
 		$shipping = 100;
 
 		foreach($cart as $producto){
-			$subtotal += $producto->quantity * $producto->price;
+			$subtotal += $producto->quantity * $producto->pricing;
 		}
 
 		$order = Order::create([
@@ -193,7 +196,7 @@ class PayPalController extends BaseController
 	protected function saveOrderItem($producto, $order_id)
 	{
 		OrderItem::create([
-			'price' => $producto->price,
+			'price' => $producto->pricing,
 			'quantity' => $producto->quantity,
 			'product_id' => $producto->id,
 			'order_id' => $order_id
