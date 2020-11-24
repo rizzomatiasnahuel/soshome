@@ -1,8 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 <br>
 <div class="container">
+
+
+@if(\Session::has('message'))
+		@include('partials.message')
+	@endif
 <div class="row">
             <div class="col-md-4">
                 <div class="card">

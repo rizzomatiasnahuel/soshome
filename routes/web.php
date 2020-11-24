@@ -229,4 +229,21 @@ Route::get('payment/status', array(
 ));
 
 
+//--------------------->Alertas
+Route::get('message', array(
+	'as' => 'message',
+	'uses' => 'MessageController@m1',
+));
+
+Route::get('message2', array(
+	'as' => 'message2',
+	'uses' => 'MessageController@m2',
+));
+
+Route::get('message3', array(
+	'as' => 'message3',
+	'uses' => 'MessageController@m3',
+));
+
+
 });

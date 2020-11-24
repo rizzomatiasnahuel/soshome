@@ -148,8 +148,12 @@ class PayPalController extends BaseController
 
 
 		if (empty($payerId) || empty($token)) {
-			return \Redirect::route('home')
+			/* return \Redirect::route('home')
 				->with('message', 'Hubo un problema al intentar pagar con Paypal');
+ */
+
+				return view('partials.message' )
+			->with('message', 'Hubo un problema al intentar pagar con Paypal');  
 		}
 
 		$payment = Payment::get($payment_id, $this->_api_context);
@@ -164,12 +168,17 @@ class PayPalController extends BaseController
 			$this->saveOrder();
 
 			\Session::forget('cart');
+			return view('partials.message2' )
+			->with('message', 'La compra fue realizada con Exito');     
 
-			return \Redirect::route('home')
-				->with('message', 'Compra realizada de forma correcta');
+			/* return \Redirect::route('home')
+				; */
 		}
-		return \Redirect::route('home')
-			->with('message', 'La compra fue cancelada');
+		/* return \Redirect::route('home')
+			->with('message', 'La compra fue cancelada'); */
+
+			return view('partials.message3' )
+			->with('message', 'La compra fue cancelada');  
 	}
 
 	protected function saveOrder()
