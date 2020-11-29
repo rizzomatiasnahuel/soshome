@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Image;
+use App\Article;
+
 
 class MessageController extends Controller
 {
@@ -14,18 +17,28 @@ class MessageController extends Controller
     public function m1()
     {
 
-        return view('partials.message');
+       
+        $images = Image::all();
+        $articles = Article::all();
+        return view('partials.message', ['images' => $images , 'articles' => $articles]);
+
     }
     public function m2()
     {
+        $images = Image::all();
+        $articles = Article::all();
+        return view('partials.message2', ['images' => $images , 'articles' => $articles]);
 
-        return view('partials.message2');
+     
     }
     
     public function m3()
     {
 
-        return view('partials.message3');
+        $images = Image::all();
+        $articles = Article::all();
+        return view('partials.message3', ['images' => $images , 'articles' => $articles]);
+
     }
 
 }

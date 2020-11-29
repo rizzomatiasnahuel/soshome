@@ -15,16 +15,16 @@
 	
 				
 
-	<div class="page ">
+	<div class="page " >
 	<h2>Datos del Usuario</h2>
-		<div class="table-responsive"style="text-align:center;" >
-						<div class="big-padding text-center ">
+		<div class="table-responsive" style="text-align:center; background: black; color: white;"  >
+						<div class="big-padding text-center " >
 
 							
 
-							<tr><td>Id:</td><td>{{Auth::user()->id}}</tr>
-							<tr><td>Nombre:</td><td>{{Auth::user()->name}}</tr>	
-							<tr><td>Email:</td><td>{{Auth::user()->email}}</tr>		
+							<tr><td  style="text-align:center; background: black; color: white;" >Id:</td><td  style="text-align:center; background: black; color: white;">{{Auth::user()->id}}</tr>
+							<tr><td  style="text-align:center; background: black; color: white;" >Nombre:</td><td  style="text-align:center; background: black; color: white;">{{Auth::user()->name}}</tr>	
+							<tr><td  style="text-align:center; background: black; color: white;" >Email:</td><td  style="text-align:center; background: black; color: white;">{{Auth::user()->email}}</tr>		
 				
 				
 
@@ -40,7 +40,7 @@
 
 </table>
 
-<table class="table table-bordered">
+<table class="table table-bordered" style=" background: black; color: white;">
 
 	
 	<thead>

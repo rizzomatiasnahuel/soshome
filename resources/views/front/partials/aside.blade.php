@@ -1,9 +1,9 @@
-<div class="panel-body">	
+<div class="panel-body" >	
 					
 
-					<ul class="list-group"> 
+					<ul class="list-group" > 
 								@foreach($categories as $category)
-								<li class="list-group-item">
+								<li class="list-group-item"  style=" color: black; background: ;">
 								  
 										<a href="{{ route('front.search.category', $category->id)}}">
 										{{ $category->name }}

@@ -24,6 +24,9 @@
                                         <li class="nav-item">
                                         <a class="nav-link"  href="{{ url('articles') }}">Articulos</a>
                                         </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link"  href="{{ url('misordenes') }}">Todas Las ordenes</a>
+                                        </li>
 
                                     </ul>
                                     </div>

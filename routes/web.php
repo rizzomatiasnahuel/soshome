@@ -53,6 +53,24 @@ Route::get('imagesv' , [
 
 ]);
 
+Route::get('quienessomos' , [
+	'uses' => 'VistasController@v1',
+	'as' => 'quienessomos'	
+
+]);
+
+Route::get('planesdeservicio' , [
+	'uses' => 'VistasController@v2',
+	'as' => 'planesdeservicio'	
+
+]);
+
+
+Route::get('contacto' , [
+	'uses' => 'VistasController@v3',
+	'as' => 'contacto'	
+
+]);
 
 Route::resource('articlesu','ArticlesUController');
 Route::get('articlesu/{id}/destroy',[
@@ -63,6 +81,12 @@ Route::get('articlesu/{id}/destroy',[
 					//	Route::get('/searchArticles','ArticlesController@searchArticles');	
 
 //Route::get('/searchFrontcategory','FrontController@searchFrontcategory');
+
+Route::get('showArticles/{id}/',[
+	'uses' => 'ShowController@show1',
+	'as'   => 'showArticles'
+]);
+
 
 
 
@@ -244,6 +268,15 @@ Route::get('message3', array(
 	'as' => 'message3',
 	'uses' => 'MessageController@m3',
 ));
+
+
+Route::resource('misordenes','OrdersController');
+
+
+Route::get('detalledesordenes/{id}/',[
+	'uses' => 'OrdersItemsController@index',
+	'as'   => 'detalledesordenes'
+]);
 
 
 });

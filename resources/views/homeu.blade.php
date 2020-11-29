@@ -19,9 +19,12 @@
                                     <ul class="navbar-nav ml-auto" alig="center" >
 
                                     <!-- Navegation Links -->
-                                        
+                                    misordenes
                                         <li class="nav-item">
                                         <a class="nav-link"  href="{{ url('articlesu') }}">Articulos</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link"  href="{{ url('misordenes') }}">Mis Ordenes</a>
                                         </li>
 
                                     </ul>

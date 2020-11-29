@@ -205,7 +205,7 @@ class PayPalController extends BaseController
 	protected function saveOrderItem($producto, $order_id)
 	{
 		OrderItem::create([
-			'price' => $producto->pricing,
+			'pricing' => $producto->pricing,
 			'quantity' => $producto->quantity,
 			'product_id' => $producto->id,
 			'order_id' => $order_id

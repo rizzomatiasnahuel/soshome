@@ -2,6 +2,39 @@
 
 @section("content")
 
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-12">
+  
+</div>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                <img src="img/a3.jpg" alt="..."
+                                                style="width: 1400; height: 200px" 
+                                                class="img-responsive" 
+                
+                >
+                <div class="carousel-caption">
+                    
+                </div>
+                </div>
+   
+
+				<h1 class="titu"> <b> Ofrecemos el mejor servicio </b></h1>
+                    La publicidad gráfica ya no la ve nadie <br>
+
+  	</div>
+        
+</div>
+<br>
+
+<br>
+
+
+.col-md-8</div>
+
 
 
 <h1 align="CENTER">SOSHOME</h1>
@@ -15,9 +48,9 @@
 			 
 			  <div class="row">
 				@foreach($articles as $article)
-				  <div class="col-sm-6 col-md-6">
+				  <div class="col-sm-6 col-xs-6">
 				    <div class="thumbnail" >
-				    	<a href="">
+				    	<a href="{{ route('showArticles', $article->id) }}">
 				    	@foreach($article->images as $image)	
 				      	<img src="{{  asset('storage/'.$image->name)  }}" 
 										 
@@ -28,7 +61,7 @@
 						</a>
 				      <div class="caption">
 				        <h3> 
-						<a href="{{ route('articles.show', $article->id) }}">
+						<a href="{{ route('showArticles', $article->id) }}">
 
 
 				        	{{$article->title }}

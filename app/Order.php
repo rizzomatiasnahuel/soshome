@@ -10,5 +10,5 @@ class Order extends Model
 
     Protected $table="orders";
 
-    Protected $fillable =['subototal','shipping','user_id'];
+    Protected $fillable =['subtotal','shipping','user_id'];
 }
