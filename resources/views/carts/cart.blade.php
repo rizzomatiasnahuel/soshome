@@ -7,7 +7,7 @@
 	
 <h1>Carrito</h1>
 </div>
-<div class="container">
+<div class="container"style=" background: black; color: white;" >
 @if(count($cart))
 	<!-- Buscador de articulos-->
 		<!-- <form action="{{ url('/searchArticles') }}" method="GET">
@@ -36,14 +36,14 @@
 		<i class="material-icons">Vaciar el Carrito</i>
 	</a>
     
-    <a href="{{route('cart-trash')}}" class="btn btn-primary btn-fab">
+    <a href="{{route('order-detail')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">Continuar</i>
 	</a>
     
     
     </p>
 	</div>
-	<thead>
+	<thead style=" background: black; color: white;">
 		<tr>
 			<td>Titulo</td>
 			<td>Categoria</td>
@@ -54,7 +54,7 @@
 			
 		</tr>
 	</thead>
-	<tbody>
+	<tbody style=" background: black; color: white;">
 		@foreach ($cart as $item)
 			<tr>
 				<td>{{$item->title}}</td>

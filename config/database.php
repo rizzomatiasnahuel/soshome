@@ -39,6 +39,7 @@ return [
             'prefix' => '',
         ],
 
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -52,7 +53,10 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
-        ],
+        ], 
+
+
+ 
 
         'pgsql' => [
             'driver' => 'pgsql',

@@ -13,6 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+/* Route::get('payment', array(
+	'as' => 'payment',
+	'uses' => 'PayPalController@postPayment',
+));
+
+Route::get('payment/status', array(
+	'as' => 'payment.status',
+	'uses' => 'PayPalController@getPaymentStatus',
+));
+ */

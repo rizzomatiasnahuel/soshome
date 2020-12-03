@@ -16,6 +16,8 @@ class Category extends Model
 
     } 
 
+  
+
     Public function scopesearchFrontcategory($query, $name){
 
     			return $query->where('name','=', $name);
