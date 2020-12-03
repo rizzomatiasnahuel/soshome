@@ -26,11 +26,12 @@
 				<thead style=" background: black; color: white;" >
 					<tr>
 						<td>id</td>
-						<td>Precio</td>   
-						<td>Cantidad</td>
+						
 						<td>Articulo</td>
 						<td>Categoria</td>
-                        <td>Precio</td>
+						<td>Precio</td>   
+						<td>Cantidad</td>
+                        <td>Total</td>
 						
 					</tr>
 				</thead>
@@ -38,10 +39,29 @@
 								@foreach ($ordenitem as $item)
 									<tr>
 										<td>{{$item->id}}</td>
+										
+										<td>
+											@php 
+											$article = \App\Article::where("id","=",$item->product_id)->pluck("title")->first();
+														
+												
+											@endphp
+											{{preg_replace("/\((.*?)\)/i", "", $article)}}
+											
+										</td>
+										<td>
+										@php 
+											$article = \App\Article::where("id","=",$item->product_id)->pluck("category_id")->first();
+							
+											$category  = \App\Category::where("id", "=", $article)->pluck("name")->first();			
+												
+											@endphp
+											{{preg_replace("/\((.*?)\)/i", "", $category)}}
+										
+										
+										</td>
 										<td>{{$item->pricing}}</td>
 										<td>{{$item->quantity}}</td>
-										<td>{{$item->product_id }}</td>
-										<td>awd</td>
 										<td>
 										
 										{{number_format( $item->pricing * $item->quantity, 2 )}}

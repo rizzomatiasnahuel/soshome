@@ -23,7 +23,7 @@
 					
 				</form>
 				<!--  Fin del Buscador de Tags-->
-<table class="table table-bordered">
+<table class="table table-bordered" style=" background: black; color: white;">
 		
 		<a href="{{url('/tags/create')}}" class="btn btn-primary btn-fab">
 			<i class="material-icons">Agregar</i>

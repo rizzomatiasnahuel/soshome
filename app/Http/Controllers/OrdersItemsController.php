@@ -25,7 +25,7 @@ class OrdersItemsController extends Controller
     {
 
         $ordenitem = OrderItem::where("order_id","=",$id)->orderBy('id','DES')->paginate(10);
-        $articles = Article::all()->pluck('product_id','title');
+        $articles = Article::all()->pluck('articles_id','name');
         $categories = Category::all()->pluck('id','name');
         // $articles = Article::all();
        
