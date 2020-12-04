@@ -7,7 +7,7 @@
 	
 <h1>Carrito</h1>
 </div>
-<div class="container"style=" background: black; color: white;" >
+<div class="container"style=" background: black; color: white;"  >
 @if(count($cart))
 	<!-- Buscador de articulos-->
 		<!-- <form action="{{ url('/searchArticles') }}" method="GET">
@@ -23,7 +23,7 @@
 					
 				</form> -->
 				<!--  Fin del Buscador de articulos-->
-<table class="table table-bordered">
+<table class="table table-bordered" class="col-xs-12 "   >
 
 	<div class="floating" align="center"> 
 	 <p>
@@ -43,6 +43,7 @@
     
     </p>
 	</div>
+	
 	<thead style=" background: black; color: white;">
 		<tr>
 			<td>Titulo</td>
@@ -117,7 +118,6 @@
 @else
     <h3><span class="label label-warning">No hay Productos en el carrito</span></h3>
 @endif
-
 
 
 </div>
