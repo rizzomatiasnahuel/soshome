@@ -41,4 +41,4 @@ Route::get('usersApi', 'UsersApiController@getAllUsersApi');
 Route::get('usersApi/{id}', 'UsersApiController@getSUsersApi');
 Route::get('usersApic', 'UsersApicController@create');
 Route::put('usersApi/{id}', 'UsersApiController@updateUsersApi');
-Route::get('usersApi/{id}','UsersApiController@deleteUsersApi ');
+Route::delete('usersApi/{id}','UsersApiController@deleteUsersApi');
