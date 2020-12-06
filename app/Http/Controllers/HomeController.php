@@ -12,6 +12,8 @@ use App\Article;
 use App\Tag;
 use App\Image;
 use App\User;
+use App\Order;
+
 class HomeController extends Controller
 {
     /**
@@ -40,9 +42,13 @@ class HomeController extends Controller
             return view('/home',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
             
         }if( $request->user()->type== 'menber'){
-            return view('/homeu',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
+            
+            
+            $orders = Order::orderBy('id','DES')->get();
 
-            return view('/homeu');
+            
+            return view('/homeu',['articles'=> $articles , 'categories'=> $categories ,'orders'=> $orders ]);
+
         }if( $request->user()->type== 'tecnico'){
             return view('/homeuTec',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
 
