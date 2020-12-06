@@ -12,6 +12,9 @@
                                     <ul class="navbar-nav ml-auto" alig="center" >
 
                                     <!-- Navegation Links -->
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="{{ url('verperfil') }}">Mi Perfil</a>
+                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ url('users') }}">Usuarios</a>
                                         </li>

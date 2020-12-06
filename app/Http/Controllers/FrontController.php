@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Category;
+use App\Tag;
 use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
@@ -19,6 +20,7 @@ class FrontController extends Controller
         
         $categories = Category::all();
         $articles = Article::all();
+        $tags = Tag::all()->pluck('id','name');
        // $categories = Category::all();
        //$articles = $category->articles;
         $articles->each(function($articles){
@@ -27,7 +29,7 @@ class FrontController extends Controller
                   });  
        
         //return view('front.index')->with('articles', $articles, 'categories', $categories );
-        return view('front.index',['articles'=> $articles , 'categories'=> $categories]);
+        return view('front.index',['articles'=> $articles , 'categories'=> $categories,'tags'=> $tags]);
     }
 
 

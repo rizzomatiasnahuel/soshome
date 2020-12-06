@@ -128,6 +128,17 @@ Route::group(['middleware' => 'home'], function () {
 
 });
 
+Route::get('verperfil',[
+	'uses' => 'PerfilController@verperfil',
+	'as'   => 'verperfil'
+]);
+
+Route::get('perfil/{id}',[
+	'uses' => 'PerfilController@edit',
+	'as'   => 'perfil.edit'
+]);
+
+
 
 Route::group(['middleware' => 'admin'], function () {
    
