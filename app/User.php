@@ -35,5 +35,11 @@ class User extends Authenticatable
 
 
     }
+    Public function valoracion(){
+
+        return $this->hasMany('App\Valoracion');
+
+
+    }
 
 }

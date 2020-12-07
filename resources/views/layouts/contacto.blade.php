@@ -12,19 +12,21 @@
 <br>
 <div class="container-fluid" >
 <div class="row">
-  <div class="col-xs-6 col-md-4 " >
+  <div class="col-xs-6 col-md-4 " align="center" >
   <form action="envia.php" method="post" class="form-consulta"> 
   
     <label>Nombre y apellido: <span>*</span> <br>
-      <input type="text" name="nombre" placeholder="Nombre y apellido" class="campo-form" required>
+      <input type="text" name="nombre" placeholder="Nombre y apellido" class="form-control input-lg" required>
     </label>
+
+
     <br>
-    <label>Email: <span>*</span><br>
-      <input type="email" name="email" placeholder="Email" class="campo-form" required>
+    <label >Email: <span>*</span><br>
+      <input type="email" name="email" placeholder="Email" class="form-control input-lg" required>
     </label>
     <br>
     <label>Consulta: <br>
-      <textarea name="consulta" class="campo-form" rows="6"></textarea>
+      <textarea name="consulta" class="form-control input-lg" rows="6"></textarea>
     </label>
     <br>
     <br>
