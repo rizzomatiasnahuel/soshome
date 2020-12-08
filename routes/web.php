@@ -139,6 +139,12 @@ Route::get('perfil/{id}',[
 ]);
 
 
+Route::resource('valoraciones','ValoracionController');
+
+Route::get('valoracionescrear','ValoracionController@create');
+
+
+
 
 Route::group(['middleware' => 'admin'], function () {
    

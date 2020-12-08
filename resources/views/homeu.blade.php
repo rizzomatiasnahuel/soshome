@@ -28,7 +28,9 @@
                                         <li class="nav-item">
                                         <a class="nav-link"  href="{{ url('misordenes') }}">Mis Ordenes</a>
                                         </li>
-
+                                        <li class="nav-item">
+                                        <a class="nav-link"  href="{{ url('valoraciones') }}">Valoraciones / Puntajes</a>
+                                        </li>            
                                     </ul>
                                     </div>
                                     </div>
