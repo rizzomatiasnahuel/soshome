@@ -14,7 +14,7 @@ class AddValoracionesTable extends Migration
     public function up()
     {
         
-        Schema::table('valoraciones', function (Blueprint $table) {
+       /*  Schema::table('valoraciones', function (Blueprint $table) {
            
             $table->integer('user_id')->unsigned();
             $table->integer('order_id')->unsigned();
@@ -25,7 +25,7 @@ class AddValoracionesTable extends Migration
             $table->timestamps();
 
 
-        });
+        }); */
     }
 
     /**
@@ -35,7 +35,7 @@ class AddValoracionesTable extends Migration
      */
     public function down()
     {
-        Schema::table('valoraciones', function (Blueprint $table) {
+       /*  Schema::table('valoraciones', function (Blueprint $table) {
            
             $table->dropColumn('user_id')->unsigned();
             $table->dropColumn('order_id')->unsigned();
@@ -45,6 +45,6 @@ class AddValoracionesTable extends Migration
             $table->foreign('order_id')->references('id')->on('orders')->ondelete('cascade');
 
 
-        });
+        }); */
     }
 }
