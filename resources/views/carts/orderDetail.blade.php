@@ -7,17 +7,20 @@
 	
 <h1>Detalle de Orden</h1>
 </div>
+<br>
 <div class="container">
 @if(count($cart))
-
-<table class="table table-bordered table-responsive">
+<div class="row">
+  <div class="col-md-3" align="center"></div>
+  <div class="col-md-6" align="center">
+  <table class="table " align="center">
 
 	
 				
 
 	<div class="page " >
 	<h2>Datos del Usuario</h2>
-		<div class="table-responsive" style="text-align:center; background: black; color: white;"  >
+		<div class="table" align="center" style="text-align:center; background: black; color: white;"  >
 						<div class="big-padding text-center " >
 
 							
@@ -34,13 +37,14 @@
 
 
 </table>
+<br>
 <table class="table table-bordered">
 <div class="page ">
 	<h2>Datos del Pedido</h2>
 
 </table>
 
-<table class="table table-bordered" style=" background: black; color: white;">
+<table class="table  table-responsive" align="center" style=" background: black; color: white;">
 
 	
 	<thead>
@@ -95,6 +99,14 @@
 
 
 </div>
+  
+  
+  
+  
+  </div>
+  <div class="col-md-3" align="center"></div>
+</div>
+
 
 
 

@@ -9,7 +9,11 @@
 
 
 <div class="container">
-<table class="table table-bordered table-responsive" style=" background: black; color: white;">
+
+<div class="row">
+  <div class="col-md-1"  align="center"  ></div>
+  <div class="col-md-10"  align="center" >
+  <table class="table table table-responsive" style=" background: black; color: white;">
 	<div class="floating">
 	<a href="{{url('/users/create')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">Agregar</i>
@@ -42,6 +46,15 @@
 		@endforeach
 	</tbody>
 </table>
+
+  
+  
+  
+  </div>
+  <div class="col-md-1"  align="center" ></div>
+</div>
+
+
 
 
 </div>

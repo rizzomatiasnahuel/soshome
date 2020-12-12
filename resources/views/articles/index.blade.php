@@ -20,8 +20,10 @@
 						</div>
 					
 				</form>
-				<!--  Fin del Buscador de articulos-->
-<table class="table table-bordered table-responsive"  style=" background: black; color: white; overflow-y: hidden">
+				<div class="row">
+  <div class="col-md-2"  align="center"  ></div>
+  <div class="col-md-8"  align="center" >			<!--  Fin del Buscador de articulos-->
+<table class="table  table-responsive"  style=" background: black; color: white; ">
 	<div class="floating">
 	<a href="{{url('/articles/create')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">Agregar</i>
@@ -61,7 +63,13 @@
 
 </div>
 
+</div>
+  <div class="col-md-2"  align="center" ></div>
+</div>
 
+
+
+	
 
 
 

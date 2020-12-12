@@ -42,7 +42,25 @@
                     <div class="card">
                         <div class="card-header" style=" background: black; color: white;">Dashbord</div>
                                 <div class="card-body">
-                                
+                                <div class=" col-md-12 col-xs-12"  >
+                               <div class="row" style=" background: black; color: white" align="center">
+                               
+                                      @php 
+											$article = \App\Article::all()->count();
+    
+												
+											@endphp
+											<h5>Cantidad de Articulos : {{preg_replace("/\((.*?)\)/i", "", $article)}} </h5>  
+                                            
+                                            </div>
+
+                                            <div class="row" style=" background: black; color: white" align="center">
+
+                                            <h5>Cantidad de Usuarios : {{$users->count()}}</h5>
+                                            
+
+                               </div>
+                               </div>
 
 
                                 <div class="container" >

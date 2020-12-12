@@ -138,6 +138,7 @@ Route::get('perfil/{id}',[
 	'as'   => 'perfil.edit'
 ]);
 
+Route::resource('perfil','PerfilController');
 
 Route::resource('valoraciones','ValoracionController');
 

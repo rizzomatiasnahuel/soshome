@@ -78,9 +78,10 @@
 				  <div class="col-sm-6 col-xs-12">
 				    <div class="thumbnail" >
 				    	<a href="{{ route('showArticles', $article->id) }}">
-				    	@foreach($article->images as $image)	
+				    	@foreach($article->images as $image)
+							
 				      	<img src="{{  asset('storage/'.$image->name)  }}" 
-										 
+						 		 	class="img-fluid"			 
 									style="width: 350px; height: 250px" 
 									class="img-responsive" 
 									alt="">
