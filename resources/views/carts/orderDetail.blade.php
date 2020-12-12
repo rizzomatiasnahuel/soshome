@@ -10,7 +10,7 @@
 <div class="container">
 @if(count($cart))
 
-<table class="table table-bordered">
+<table class="table table-bordered table-responsive">
 
 	
 				

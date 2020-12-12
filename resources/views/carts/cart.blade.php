@@ -23,7 +23,7 @@
 					
 				</form> -->
 				<!--  Fin del Buscador de articulos-->
-<table class="table table-bordered" class="col-xs-12 "   >
+<table class="table table-bordered table-responsive" class="col-xs-12 "   >
 
 	<div class="floating" align="center"> 
 	 <p>

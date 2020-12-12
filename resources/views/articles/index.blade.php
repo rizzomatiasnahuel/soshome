@@ -21,7 +21,7 @@
 					
 				</form>
 				<!--  Fin del Buscador de articulos-->
-<table class="table table-bordered"  style=" background: black; color: white;">
+<table class="table table-bordered table-responsive"  style=" background: black; color: white; overflow-y: hidden">
 	<div class="floating">
 	<a href="{{url('/articles/create')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">Agregar</i>

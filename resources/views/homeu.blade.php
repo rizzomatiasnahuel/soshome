@@ -44,7 +44,7 @@
 
                                 <div class="container" style=" background: black; color: white;" >
 
-<table class="table table-bordered">
+<table class="table table-bordered table-responsive">
 
     <div class="floating" align="center"> 
     <p>

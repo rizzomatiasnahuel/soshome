@@ -46,7 +46,7 @@
 
 
                                 <div class="container" >
-                                                    <table class="table table-bordered" >
+                                                    <table class="table table-bordered table-responsive" >
                                                         <div class="floating" >
                                                         <a href="{{url('/users/create')}}" class="btn btn-primary btn-fab">
                                                             <i class="material-icons">Agregar</i>

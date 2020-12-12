@@ -9,7 +9,7 @@
 
 
 <div class="container">
-<table class="table table-bordered" style=" background: black; color: white;">
+<table class="table table-bordered table-responsive" style=" background: black; color: white;">
 	<div class="floating">
 	<a href="{{url('/users/create')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">Agregar</i>
