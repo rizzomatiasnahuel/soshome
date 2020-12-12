@@ -47,10 +47,18 @@
 			<div class="col-md-4 col-xs-12 col-sm-6">
 			<br>
 			<table class="table table-bordered" style=" background: black; color: white;" align="center">
+			
+					
+						<tr><td> 
+						<p> GPS: </p>
+						<a href="{{$user->GPS}}" target="_blank" class="hr">
+						 {{$user->GPS}}
+						 </a>
+						 </td></tr>
 						
+						<tr><td><p> Certificacion:</p> {{$user->certificacion}}
 						
-						<tr><td> <p> GPS: </p> {{$user->GPS}}</td></tr>
-						<tr><td><p> Certificacion:</p> {{$user->certificacion}}</td></tr>
+						</td></tr>
 						<tr><td> <p> Matricula: </p> {{$user->matricula}}</td></tr>
 						<tr><td> <p> Horario de Atencion: </p> {{$user->horario_atencion}}</td></tr>
 						<tr><td> <p> Perfil: </p> {{$user->type}}</td></tr>
