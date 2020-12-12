@@ -149,7 +149,9 @@ Route::get('valoracionescrear','ValoracionController@create');
 Route::group(['middleware' => 'admin'], function () {
    
 						
-					
+	Route::resource('ValoracionesAdmin','ValoracionesAdminController');
+	Route::resource('OrdenesAdmin','OrdenesAdminController');
+
 
 
 
@@ -160,8 +162,9 @@ Route::group(['middleware' => 'admin'], function () {
 						]);
 
 					
+						Route::resource('ArticleAdmin','ArticleAdminController');
 
-
+						
 
 						Route::resource('tags','TagsController');
 						Route::get('tags/{id}/destroy',[

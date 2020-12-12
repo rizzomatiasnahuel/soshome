@@ -25,29 +25,29 @@
                                         <a class="nav-link"  href="{{ url('cates') }}">Categorias</a>
                                         </li>
                                         <li class="nav-item">
-                                        <a class="nav-link"  href="{{ url('articles') }}">Articulos</a>
+                                        <a class="nav-link"  href="{{ url('ArticleAdmin') }}">Todos los Servicios y  Articulos</a>
                                         </li>
                                         <li class="nav-item">
-                                        <a class="nav-link"  href="{{ url('misordenes') }}">Todas Las ordenes</a>
+                                        <a class="nav-link"  href="{{ url('OrdenesAdmin') }}">Todas Las ordenes</a>
                                         </li>
                                         <li class="nav-item">
-                                        <a class="nav-link"  href="{{ url('valoraciones') }}">Valoraciones / Puntajes</a>
+                                        <a class="nav-link"  href="{{ url('ValoracionesAdmin') }}">Valoraciones / Puntajes</a>
                                         </li>    
                                     </ul>
                                     </div>
                                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-xs-12 col-md-8">
                     <div class="card">
                         <div class="card-header" style=" background: black; color: white;">Dashbord</div>
                                 <div class="card-body">
                                 
 
 
-                                <div class="container">
-                                                    <table class="table table-bordered">
-                                                        <div class="floating">
+                                <div class="container" >
+                                                    <table class="table table-bordered" >
+                                                        <div class="floating" >
                                                         <a href="{{url('/users/create')}}" class="btn btn-primary btn-fab">
                                                             <i class="material-icons">Agregar</i>
                                                         </a>

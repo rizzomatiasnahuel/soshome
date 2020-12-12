@@ -19,10 +19,11 @@ class ValoracionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $valoraciones = Valoracion::all();
-        $orders = Order::orderBy('id','DES')->paginate(200);
+        $orders = Order::all()->where('user_id', '=', $request->user()->id);
+
         return view("valoraciones.index")->with('orders', $orders, 'valoraciones', $valoraciones);
     }
 

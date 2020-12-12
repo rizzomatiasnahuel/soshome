@@ -34,23 +34,29 @@ class HomeController extends Controller
     public function home(Request $request)
     {
         
-        $articles = Article::all();
-        $categories = Category::all();
-        $users = User::orderBy('id','DES')->get();
+      
 
         if( $request->user()->type== 'admin'){
+
+            $articles = Article::all();
+            $categories = Category::all();
+            $users = User::orderBy('id','DES')->get();
+            $orders = Order::all();
+
             return view('/home',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
             
         }if( $request->user()->type== 'menber'){
             
             
-            $orders = Order::orderBy('id','DES')->get();
-
+            $orders = Order::all()->where('user_id', '=', $request->user()->id);
             
-            return view('/homeu',['articles'=> $articles , 'categories'=> $categories ,'orders'=> $orders ]);
+            return view('/homeu',['orders'=> $orders ]);
 
         }if( $request->user()->type== 'tecnico'){
-            return view('/homeuTec',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
+
+            $orders = Order::all()->where('user_id', '=', $request->user()->id);
+
+            return view('/homeu',['orders'=> $orders]);
 
             
         }
