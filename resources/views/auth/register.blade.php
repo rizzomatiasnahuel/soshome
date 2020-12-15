@@ -76,7 +76,63 @@ Desde ya muchas gracias Soshome.com.ar !
                             <label for="barrio" class="col-md-4 col-form-label text-md-right">{{ __('Barrio') }}</label>
 
                             <div class="col-md-6">
-                                <input id="barrio" type="text" class="form-control{{ $errors->has('barrio') ? ' is-invalid' : '' }}" name="barrio" value="{{ old('barrio') }}" required autofocus>
+                                  
+                                    <div class="form-group">
+                                                <select class="form-control" id="barrio" name="barrio">
+                                                <option>No especifica</option>
+                                                  <option>Agronomía</option>
+                                                  <option>Almagro</option>
+                                                  <option>Balvanera</option>
+                                                  <option>Barracas</option>
+                                                  <option>Belgrano</option>
+                                                  <option>Boedo</option>
+                                                  <option>Caballito</option>
+                                                  <option>Chacarita</option>
+                                                  <option>Coghlan</option>
+                                                  <option>Colegiales</option>
+                                                  <option>Constitución</option>
+                                                  <option>Flores</option>
+                                                  <option>Floresta</option>
+                                                  <option>La Boca</option>
+                                                  <option>La Paternal</option>
+                                                  <option>Liniers</option>
+                                                  <option>Mataderos</option>
+                                                  <option>Monte Castro</option>
+                                                  <option>Monserrat (originalmente llamado Montserrat).</option>
+                                                  <option>Nueva Pompeya</option>
+                                                  <option>Núñez</option>
+                                                  <option>Palermo</option>
+                                                  <option>Parque Avellaneda</option>
+                                                  <option>Parque Chacabuco</option>
+                                                  <option>Parque Chas</option>
+                                                  <option>Parque Patricios</option>
+                                                  <option>Puerto Madero</option>
+                                                  <option>Recoleta</option>
+                                                  <option>Retiro</option>
+                                                  <option>Saavedra</option>
+                                                  <option>San Cristóbal</option>
+                                                  <option>San Nicolás</option>
+                                                  <option>San Telmo</option>
+                                                  <option>Vélez Sársfield</option>
+                                                  <option>Versalles</option>
+                                                  <option>Villa Crespo</option>
+                                                  <option>Villa del Parque</option>
+                                                  <option>Villa Devoto</option>
+                                                  <option>Villa General Mitre</option>
+                                                  <option>Villa Lugano</option>
+                                                  <option>Villa Luro</option>
+                                                  <option>Villa Ortúzar</option>
+                                                  <option>Villa Pueyrredón</option>
+                                                  <option>Villa Real</option>
+                                                  <option>Villa Riachuelo</option>
+                                                  <option>Villa Santa Rita</option>
+                                                  <option>Villa Soldati</option>
+                                                  <option>Villa Urquiza</option>
+                                                
+
+                                            
+                                                </select>
+                                            </div>
 
                                 @if ($errors->has('barrio'))
                                     <span class="invalid-feedback" role="alert">
@@ -129,7 +185,7 @@ Desde ya muchas gracias Soshome.com.ar !
                             <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de Usuario') }}</label>
 
                             <div class="col-md-6">
-                            {!! Form::select('type', ['' => 'seleccione un nivel....' , 'menber' => 'Miembro' ,  'tecnico' => 'Tecnico' ] , null , ['class' => 'form-control' ])!!}
+                            {!! Form::select('type', ['' => 'seleccione un nivel....' , 'MEMBER' => 'MEMBER' ,  'TECNICO' => 'TECNICO' ] , null , ['class' => 'form-control' ])!!}
 
                                 @if ($errors->has('type'))
                                     <span class="invalid-feedback" role="alert">
@@ -141,9 +197,24 @@ Desde ya muchas gracias Soshome.com.ar !
 
                         <div class="form-group row">
                             <label for="horario_atencion" class="col-md-4 col-form-label text-md-right">{{ __('Horario Atencion') }}</label>
-
+                                 
                             <div class="col-md-6">
-                                <input id="horario_atencion" type="text" class="form-control{{ $errors->has('horario_atencion') ? ' is-invalid' : '' }}" name="horario_atencion" value="{{ old('horario_atencion') }}" >
+
+
+                            <div class="form-group">
+                                        <select class="form-control" id="horario_atencion" name="horario_atencion">
+                                        <option>Turno Mañana 6 a 14 hs.</option>
+                                        <option>Turno Tarde  14 a 20 hs.</option>
+                                        <option>Turno Noche 20 a 12 hs.</option>
+                                        <option>Turno Madrugada 12 a 6 hs.</option>
+                                        <option>No especifica a Coordinar</option>
+                                        <option>Sin detalle</option>
+
+                                      
+                                        </select>
+                                    </div>
+
+
 
                                 @if ($errors->has('horario_atencion'))
                                     <span class="invalid-feedback" role="alert">

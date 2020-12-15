@@ -64,7 +64,7 @@
 
 	<div class="form-group">
 		{!! Form::label('type','Tipo')!!}
-		{!! Form::select('type', ['' => 'seleccione un nivel....' , 'menber' => 'Miembro' , 'admin' => 'Administrador', 'tecnico' => 'Tecnico' ] , null , ['class' => 'form-control' ])!!}
+		{!! Form::select('type', ['' => 'seleccione un nivel....' , 'MEMBER' => 'MEMBER' , 'ADMIN' => 'Administrador', 'TECNICO' => 'TECNICO' ] , null , ['class' => 'form-control' ])!!}
 
 	</div>
 	

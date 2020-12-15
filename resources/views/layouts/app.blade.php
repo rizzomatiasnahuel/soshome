@@ -183,12 +183,12 @@
                                                   </span>
                                                   </h2>
                                   
-                                                <a href="contacto.php" target="_blank">
+                                                <a href="{{url('contacto')}}" target="_blank">
                                                 
                                         
                                                 </a>                
                                               
-                                              <h3><a href="contacto.php" target="_blank">soshome@soshome.com.ar</a></h3>
+                                              <h3><a href="{{url('contacto')}}" target="_blank">soshome@soshome.com.ar</a></h3>
                             </div>
                             <div class="col-xs-12 col-md-4 "   style=" color: white; ">
                                   <h4>Seguinos!</H4>

@@ -36,7 +36,7 @@ class HomeController extends Controller
         
       
 
-        if( $request->user()->type== 'admin'){
+        if( $request->user()->type== 'ADMIN'){
 
             $articles = Article::all();
             $categories = Category::all();
@@ -45,14 +45,14 @@ class HomeController extends Controller
 
             return view('/home',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
             
-        }if( $request->user()->type== 'menber'){
+        }if( $request->user()->type== 'MEMBER'){
             
             
             $orders = Order::all()->where('user_id', '=', $request->user()->id);
             
             return view('/homeu',['orders'=> $orders ]);
 
-        }if( $request->user()->type== 'tecnico'){
+        }if( $request->user()->type== 'TENICO'){
 
             $orders = Order::all()->where('user_id', '=', $request->user()->id);
 
