@@ -3,29 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\User;
-
 use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Support\Facades\DB;
 
+use DB;
+use App\Order;
+use App\OrderItem;
+use App\Article;
+use App\Valoracion;
 
-class UsersController extends Controller
+class ValoracionController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = DB::table('users')->get();
+        $valoraciones = Valoracion::all();
+        $orders = Order::all()->where('user_id', '=', $request->user()->id);
 
-        return view('users.index', ['users' => $users]);
-
-      
-
+        return view("valoraciones.index")->with('orders', $orders, 'valoraciones', $valoraciones);
     }
 
     /**
@@ -35,7 +34,12 @@ class UsersController extends Controller
      */
     public function create()
     {
-      return view('users.create');
+
+        $valoraciones = Valoracion::all();
+        $orders = Order::all();
+        return view("valoraciones.crearvaloracion")->with('orders', $orders, 'valoraciones', $valoraciones);
+
+    
     }
 
     /**
@@ -45,13 +49,19 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-            $user = new User($request->all());
-            $user ->password = bcrypt( $request -> password);
-            $user -> save();
-            return redirect("/users");
-        //
-    }
+    {               		
+                    $orders=request()->all();
+                    $valoracion = new Valoracion($request->all());
+                    $valoracion->order_id = $request->input('id');
+                    $valoracion->user_id = \Auth::user()->id;
+
+                    $valoracion->puntaje =  $request->input('puntaje');    
+                    $valoracion ->save();
+
+                    return redirect()->route("valoraciones.index");
+
+
+}
 
     /**
      * Display the specified resource.
@@ -72,8 +82,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('users.edit') ->with('user',$user);
+        //
     }
 
     /**
@@ -85,27 +94,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $user = User::find($id);
-        $user -> name = $request->name;
-        $user -> email =$request->email;
-        $user -> type = $request ->type;
-
-
-        $user -> apellido = $request->apellido;
-        $user -> DNI =$request->DNI;
-        $user -> celular = $request ->celular;
-
-        $user -> barrio = $request->barrio;
-        $user -> GPS =$request->GPS;
-        $user -> certificacion = $request ->certificacion;
-
-        $user -> matricula = $request->matricula;
-        $user -> horario_atencion =$request->horario_atencion;
-        
-        $user -> save();
-        
-        return redirect("/users");
+        //
     }
 
     /**
@@ -116,8 +105,6 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $user =User::find($id);
-        $user -> delete();
-        return redirect("/users");
+        //
     }
 }

@@ -42,6 +42,7 @@
                  {{$articles->pricing}}
                  </p>   
                 <p>
+                
                 <a href="" class="btn btn-success">Agregar a Carrito</a>
                 </p>
 

@@ -10,21 +10,23 @@
 
 
 <br>
-<div class="container" >
+<div class="container-fluid" >
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-xs-6 col-md-4 " align="center" >
   <form action="envia.php" method="post" class="form-consulta"> 
   
     <label>Nombre y apellido: <span>*</span> <br>
-      <input type="text" name="nombre" placeholder="Nombre y apellido" class="campo-form" required>
+      <input type="text" name="nombre" placeholder="Nombre y apellido" class="form-control input-lg" required>
     </label>
+
+
     <br>
-    <label>Email: <span>*</span><br>
-      <input type="email" name="email" placeholder="Email" class="campo-form" required>
+    <label >Email: <span>*</span><br>
+      <input type="email" name="email" placeholder="Email" class="form-control input-lg" required>
     </label>
     <br>
     <label>Consulta: <br>
-      <textarea name="consulta" class="campo-form" rows="6"></textarea>
+      <textarea name="consulta" class="form-control input-lg" rows="6"></textarea>
     </label>
     <br>
     <br>
@@ -33,7 +35,7 @@
   
   
   </div>
-  <div class="col-md-8" align="left">
+  <div class="col-xs-12 col-sm-6 col-md-8"  >
   
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0095666533134!2d-58.383585634414196!3d-34.603919597664095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzEzLjEiUyA1OMKwMjInNTYuNSJX!5e0!3m2!1ses!2sar!4v1606366250921!5m2!1ses!2sar" width="600" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>  
   

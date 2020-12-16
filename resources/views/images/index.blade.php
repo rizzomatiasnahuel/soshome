@@ -15,7 +15,7 @@
 							<div class="panel panel-default">
 								<div class="panel-body">
 									<img src="{{ asset('storage/'.$image->name) }}" 
-										 
+									class="img-fluid"
 									style="width: 350px; height: 250px; border: 2px solid black" class="img-responsive" alt="">
 								</div>
 								<div class="panel-footer"> {{$image->article->title }}</div>

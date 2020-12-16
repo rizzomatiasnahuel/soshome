@@ -41,11 +41,11 @@
 		</div>
 
 
-	<div class="form-group">
+	<div class="form-group"  >
 		  {!!Form::label('tags', 'Tags')!!}
-		  {!!Form::select('tags[]', $tags,null, ['class'=>'form-control','multiple','required'])!!}
+		  {!!Form::select('tags[]', $tags,null, ['class'=>'form-control','multiple','required','size' => 12])!!}
 		</div>
-
+<br>
 			<div class="form-group">
 		{!! Form::label('image','Imagen')!!}
 		{!! Form::file('image')!!}

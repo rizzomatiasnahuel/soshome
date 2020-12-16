@@ -2,11 +2,12 @@
 
 @section("content")
 
+
 <div class="container white">
 <h1>Editar Usuario</h1>
 <!--Formulario-->
 
-{!! Form::open(['route' => ['users.update', $user],'method' =>'PUT'])!!}
+{!! Form::open(['route' => ['perfil.update', $user],'method' =>'PUT'])!!}
 	
 	<div class="form-group">
 		{!! Form::label('name','Name')!!}
@@ -77,6 +78,8 @@
 {!! Form::close()!!}
 
 
+
+</div>
 
 </div>
 @endsection

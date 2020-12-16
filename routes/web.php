@@ -128,11 +128,31 @@ Route::group(['middleware' => 'home'], function () {
 
 });
 
+Route::get('verperfil',[
+	'uses' => 'PerfilController@verperfil',
+	'as'   => 'verperfil'
+]);
+
+Route::get('perfil/{id}',[
+	'uses' => 'PerfilController@edit',
+	'as'   => 'perfil.edit'
+]);
+
+Route::resource('perfil','PerfilController');
+
+Route::resource('valoraciones','ValoracionController');
+
+Route::get('valoracionescrear','ValoracionController@create');
+
+
+
 
 Route::group(['middleware' => 'admin'], function () {
    
 						
-					
+	Route::resource('ValoracionesAdmin','ValoracionesAdminController');
+	Route::resource('OrdenesAdmin','OrdenesAdminController');
+
 
 
 
@@ -143,8 +163,9 @@ Route::group(['middleware' => 'admin'], function () {
 						]);
 
 					
+						Route::resource('ArticleAdmin','ArticleAdminController');
 
-
+						
 
 						Route::resource('tags','TagsController');
 						Route::get('tags/{id}/destroy',[

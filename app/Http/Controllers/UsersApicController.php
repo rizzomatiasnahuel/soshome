@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
+class UsersApicController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -21,8 +22,8 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
-
+/*     use RegistersUsers;
+ */
     /**
      * Where to redirect users after registration.
      *
@@ -46,7 +47,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    public function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
@@ -61,21 +62,26 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    public function create(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'apellido' => $data['apellido'],
-            'DNI' => $data['DNI'],
-            'celular' => $data['celular'],
-            'barrio' => $data['barrio'],
-            'GPS' => $data['GPS'],
-            'certificacion' => $data['certificacion'],
-            'matricula' => $data['matricula'],
-            'horario_atencion' => $data['horario_atencion'],
-            
+      
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
         ]);
+
+        $user= new user;
+    
+        $user ->name  = $request->name;
+        $user ->email =$request->email;
+        $user ->type = "menber";
+        $user ->remember_token = bcrypt($request);
+        $user ->password = bcrypt( $request ->password);
+        $user -> save();
+        return response()->json($user, 200);   
+    
+    
+    } 
+        
     }
-}

@@ -12,6 +12,8 @@ use App\Article;
 use App\Tag;
 use App\Image;
 use App\User;
+use App\Order;
+
 class HomeController extends Controller
 {
     /**
@@ -32,19 +34,29 @@ class HomeController extends Controller
     public function home(Request $request)
     {
         
-        $articles = Article::all();
-        $categories = Category::all();
-        $users = User::orderBy('id','DES')->get();
+      
 
-        if( $request->user()->type== 'admin'){
+        if( $request->user()->type== 'ADMIN'){
+
+            $articles = Article::all();
+            $categories = Category::all();
+            $users = User::orderBy('id','DES')->get();
+            $orders = Order::all();
+
             return view('/home',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
             
-        }if( $request->user()->type== 'menber'){
-            return view('/homeu',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
+        }if( $request->user()->type== 'MEMBER'){
+            
+            
+            $orders = Order::all()->where('user_id', '=', $request->user()->id);
+            
+            return view('/homeu',['orders'=> $orders ]);
 
-            return view('/homeu');
-        }if( $request->user()->type== 'tecnico'){
-            return view('/homeuTec',['articles'=> $articles , 'categories'=> $categories ,'users'=> $users ]);
+        }if( $request->user()->type== 'TENICO'){
+
+            $orders = Order::all()->where('user_id', '=', $request->user()->id);
+
+            return view('/homeu',['orders'=> $orders]);
 
             
         }

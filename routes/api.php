@@ -30,3 +30,15 @@ Route::get('payment/status', array(
 	'uses' => 'PayPalController@getPaymentStatus',
 ));
  */
+
+Route::get('users/', function (App\Models\User $user) {
+    return $user;
+});
+
+
+
+Route::get('usersApi', 'UsersApiController@getAllUsersApi');
+Route::get('usersApi/{id}', 'UsersApiController@getSUsersApi');
+Route::get('usersApic', 'UsersApicController@create');
+Route::put('usersApi/{id}', 'UsersApiController@updateUsersApi');
+Route::delete('usersApi/{id}','UsersApiController@deleteUsersApi');

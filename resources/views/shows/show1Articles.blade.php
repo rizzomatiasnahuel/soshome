@@ -40,7 +40,16 @@
                  </p>
                  <p>
                  {{$articles->pricing}}
-                 </p>   
+                 </p>
+
+
+                 <p>
+                 @foreach($articles->tags as $tags)	
+						<a href="" class="" role="button">{{$tags->name}}</a>
+						
+						@endforeach	 
+                 </p>         
+                       
                 <p>
                 <a href="{{ route('cart-add', $articles->id ) }}" class="btn btn-success">Agregar a Carrito</a>
                 </p>

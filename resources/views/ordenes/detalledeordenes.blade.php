@@ -11,7 +11,12 @@
 </div>
 <div class="container" style=" background: black; color: white;" >
 
-		<table class="table table-bordered">
+
+<div class="row">
+  <div class="col-md-3"  align="center"  ></div>
+  <div class="col-md-6"  align="center" >
+  
+  <table class="table  table-responsive">
 
 			<div class="floating" align="center"> 
 			<p>
@@ -82,6 +87,17 @@
 						
 						</tbody>
 		</table>
+  
+  
+  
+  
+  
+  </div>
+  <div class="col-md-3"  align="center" ></div>
+</div>
+
+
+		
 
 
 
