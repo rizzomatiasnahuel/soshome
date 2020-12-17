@@ -3,7 +3,7 @@
 @section("content")
 
 <div class="container white">
-<h1>Editar Articulo</h1>
+<h1>Editar Articulos y Servicios</h1>
 <!--Formulario-->
 
 {!! Form::open(['route' => ['articlesu.update',  $articles] ,'method' =>'PUT'])!!}

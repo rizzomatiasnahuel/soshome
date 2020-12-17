@@ -4,7 +4,7 @@
 
 <div class="big-padding text-center blue-grey white-text">
 	
-<h1>Articulos</h1>
+<h1>Articulos y Servicios</h1>
 </div>
 <div class="container">
 	<!-- Buscador de articulos-->
@@ -25,8 +25,8 @@
 
 
 				<div class="row">
-  <div class="col-md-3"  align="center"  ></div>
-  <div class="col-md-6"  align="center" >
+  <div class="col-md-2"  align="center"  ></div>
+  <div class="col-md-8"  align="center" >
   
 <table class="table  table-responsive" style=" background: black; color: white;">
 	<div class="floating">
@@ -69,7 +69,7 @@
 
 
   </div>
-  <div class="col-md-3"  align="center" ></div>
+  <div class="col-md-2"  align="center" ></div>
 </div>
 
 </div>

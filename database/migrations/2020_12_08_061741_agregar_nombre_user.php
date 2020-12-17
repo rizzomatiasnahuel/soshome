@@ -23,7 +23,8 @@ class AgregarNombreUser extends Migration
             $table->string('certificacion')->nullable();
             $table->string('matricula')->nullable();
             $table->string('horario_atencion')->nullable();
-
+            $table->string('pregunta')->nullable();
+            $table->string('respuesta')->nullable();    
                                             });
 
   

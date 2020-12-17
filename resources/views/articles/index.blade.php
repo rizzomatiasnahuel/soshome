@@ -4,7 +4,7 @@
 
 <div class="big-padding text-center blue-grey white-text">
 	
-<h1>Articulos</h1>
+<h1>Articulos y Servicios</h1>
 </div>
 <div class="container">
 	<!-- Buscador de articulos-->
