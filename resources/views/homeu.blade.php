@@ -23,7 +23,7 @@
                                             <a class="nav-link" href="{{ url('verperfil') }}">Mi Perfil</a>
                                         </li>
                                         <li class="nav-item">
-                                        <a class="nav-link"  href="{{ url('articlesu') }}">Articulos</a>
+                                        <a class="nav-link"  href="{{ url('articlesu') }}">Servicios y  Articulos</a>
                                         </li>
                                         <li class="nav-item">
                                         <a class="nav-link"  href="{{ url('misordenes') }}">Mis Ordenes</a>

@@ -44,10 +44,12 @@
 
 
                  <p>
-                 @foreach($articles->tags as $tags)	
-						<a href="" class="" role="button">{{$tags->name}}</a>
-						
-						@endforeach	 
+                 <div class="thumbnail" style=" background: black; color: white; ">
+                    @foreach($articles->tags as $tags)	
+                            <a href="" class="btn btn-outline-ligh" role="button">{{$tags->name}}</a>
+                            
+                            @endforeach	 
+                            </div>
                  </p>         
                        
                 <p>

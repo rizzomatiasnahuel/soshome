@@ -3,7 +3,7 @@
 @section("content")
 
 <div class="container white">
-<h1>Agregar Articulo</h1>
+<h1>Agregar Articulos y Servicios</h1>
 <!--Formulario-->
 
 {!! Form::open(['route' =>'articles.store','method' =>'POST', 'files'=>true ])!!}

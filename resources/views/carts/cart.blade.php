@@ -52,7 +52,9 @@
 		<td>Titulo</td>
 		<td>Categoria</td>
 		<td>Precio</td>
-		<td>Cantidad</td>
+		<td>Cantidad
+		<br> 
+		(1 al 10) </td>
 		<td>Subtotal</td>    
 		<td>Quitar</td>
 		
@@ -70,7 +72,7 @@
 			<div class="form-group">
 			<input type="number" name="quantity"
 						min="1"
-						max="100"
+						max="10"
 						value="{{$item->quantity}}"		
 						id="article_{{$item->id}}"
 				>
